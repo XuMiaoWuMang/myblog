@@ -7,28 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="Git篇：相逢即是缘 此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。
-一言以蔽之：git是一种版本管理器。
-如果你是一名大学生，你想写一个图书管理系统作为毕设，但是给导师看了之后发现这个系统极其简陋，只有登入和注册功能，导师要求你增加图书检索功能。增加之后，导师说不要全字匹配，要模糊匹配。修改之后，导师又说我全都要。
-毫无疑问，此时的你已经把全字匹配的代码删的一干二净了，你现在急需时光机回到修改之前。一听就让人头大，于是git作为解决这种情况的工具横空出世!
-准备工作 安装 只需复制这行代码到linux中然后一路敲回车键即可获得git。
-[!CAUTION]
-注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。
-sudo apt install git 卸载 与使用差不多，唯一变了的就是install，变成了remove。
-sudo apt remove git 初始化 在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。
-mkdir [目录名] 先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。
-[!CAUTION]
-如非必要，不要修改.git目录下的任何内容，除非你是git高手。
-git init 如果对这个隐藏目录好奇可以用tree .git/来直观地看。
-配置用户名与邮箱 用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。
-git config user.name &#34;xumiao&#34; git config user.email &#34;xumiao@email.com&#34; 我怎么知道我修改成功与否呢？用以下命令即可。
-git config -l 如果想要将其置空，则可以使用以下命令来置空。
-git config --unset user.name git config --unset user.email 还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：
-git config --global user.name &#34;xumiao&#34; git config --global user.email &#34;xumiao@email.com&#34; [!WARNING]
-请注意，使用了--global命令配置的用户名是不会被上述命令置空和修改的。
-对应的置空命令为：
-git config --global --unset user.name git config --global --unset user.email 如果你够细心的话就会发现，没加--global的用户名在git config -l的最下面，加了global的用户名则在git config -l的最上面。
-"
+  content=""
 />
 <meta
   name="keywords"
@@ -37,27 +16,6 @@ git config --global --unset user.name git config --global --unset user.email 如
 <meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git/">
   <meta property="og:site_name" content="Hugo Theme Tailwind Example Site">
   <meta property="og:title" content="Git">
-  <meta property="og:description" content="Git篇：相逢即是缘 此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。
-一言以蔽之：git是一种版本管理器。
-如果你是一名大学生，你想写一个图书管理系统作为毕设，但是给导师看了之后发现这个系统极其简陋，只有登入和注册功能，导师要求你增加图书检索功能。增加之后，导师说不要全字匹配，要模糊匹配。修改之后，导师又说我全都要。
-毫无疑问，此时的你已经把全字匹配的代码删的一干二净了，你现在急需时光机回到修改之前。一听就让人头大，于是git作为解决这种情况的工具横空出世!
-准备工作 安装 只需复制这行代码到linux中然后一路敲回车键即可获得git。
-[!CAUTION]
-注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。
-sudo apt install git 卸载 与使用差不多，唯一变了的就是install，变成了remove。
-sudo apt remove git 初始化 在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。
-mkdir [目录名] 先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。
-[!CAUTION]
-如非必要，不要修改.git目录下的任何内容，除非你是git高手。
-git init 如果对这个隐藏目录好奇可以用tree .git/来直观地看。
-配置用户名与邮箱 用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。
-git config user.name &#34;xumiao&#34; git config user.email &#34;xumiao@email.com&#34; 我怎么知道我修改成功与否呢？用以下命令即可。
-git config -l 如果想要将其置空，则可以使用以下命令来置空。
-git config --unset user.name git config --unset user.email 还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：
-git config --global user.name &#34;xumiao&#34; git config --global user.email &#34;xumiao@email.com&#34; [!WARNING]
-请注意，使用了--global命令配置的用户名是不会被上述命令置空和修改的。
-对应的置空命令为：
-git config --global --unset user.name git config --global --unset user.email 如果你够细心的话就会发现，没加--global的用户名在git config -l的最下面，加了global的用户名则在git config -l的最上面。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -67,27 +25,6 @@ git config --global --unset user.name git config --global --unset user.email 如
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git">
-  <meta name="twitter:description" content="Git篇：相逢即是缘 此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。
-一言以蔽之：git是一种版本管理器。
-如果你是一名大学生，你想写一个图书管理系统作为毕设，但是给导师看了之后发现这个系统极其简陋，只有登入和注册功能，导师要求你增加图书检索功能。增加之后，导师说不要全字匹配，要模糊匹配。修改之后，导师又说我全都要。
-毫无疑问，此时的你已经把全字匹配的代码删的一干二净了，你现在急需时光机回到修改之前。一听就让人头大，于是git作为解决这种情况的工具横空出世!
-准备工作 安装 只需复制这行代码到linux中然后一路敲回车键即可获得git。
-[!CAUTION]
-注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。
-sudo apt install git 卸载 与使用差不多，唯一变了的就是install，变成了remove。
-sudo apt remove git 初始化 在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。
-mkdir [目录名] 先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。
-[!CAUTION]
-如非必要，不要修改.git目录下的任何内容，除非你是git高手。
-git init 如果对这个隐藏目录好奇可以用tree .git/来直观地看。
-配置用户名与邮箱 用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。
-git config user.name &#34;xumiao&#34; git config user.email &#34;xumiao@email.com&#34; 我怎么知道我修改成功与否呢？用以下命令即可。
-git config -l 如果想要将其置空，则可以使用以下命令来置空。
-git config --unset user.name git config --unset user.email 还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：
-git config --global user.name &#34;xumiao&#34; git config --global user.email &#34;xumiao@email.com&#34; [!WARNING]
-请注意，使用了--global命令配置的用户名是不会被上述命令置空和修改的。
-对应的置空命令为：
-git config --global --unset user.name git config --global --unset user.email 如果你够细心的话就会发现，没加--global的用户名在git config -l的最下面，加了global的用户名则在git config -l的最上面。">
 
 
 <link rel="canonical" href="http://localhost:1313/posts/git/" />
@@ -369,7 +306,6 @@ git config --global --unset user.email
 git log --pretty=one
 </code></pre><h2 id="结尾">结尾</h2>
 <p>好了，你已经会git的基本操作了，去管理你的本地仓库吧！</p>
-
       </article>
 
       
