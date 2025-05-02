@@ -248,7 +248,7 @@
 <h3 id="各种方法撤回修改">各种方法撤回修改</h3>
 <h4 id="对于reset方法">对于reset方法：</h4>
 <p>HEAD是指版本库目前所在的版本，后面的n表示的是你想回退几次版本，回退到上一个版本的话，n=1。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset <span class="o">[</span>--option<span class="o">]</span> HEAD^n
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset <span class="o">[</span>--option<span class="o">]</span> HEAD~n
 </span></span></code></pre></div><p>&ndash;soft：回退到指定版本，保留工作区和暂存区，不删除工作区的修改。</p>
 <p>&ndash;mixed：回退到指定版本，保留工作区，删除暂存区的修改。</p>
 <p>&ndash;hard：回退到指定版本，删除工作区和暂存区的修改。</p>

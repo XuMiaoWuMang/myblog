@@ -175,70 +175,9 @@
 
               
   
-<<<<<<< HEAD
-
-
-              
-
-
-              <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
-  
-  
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
-   <path d="M16 3v4"></path>
-   <path d="M8 3v4"></path>
-   <path d="M4 11h16"></path>
-   <path d="M11 15h1"></path>
-   <path d="M12 15v3"></path>
-</svg>
-
-    </i>
-    <time datetime="2025-05-02T20:41:28&#43;08:00">
-      2025-05-02
-    </time>
-=======
   <div class="my-4 text-large text-slate-600 dark:text-slate-300">
     <!-- more -->
 <h1 id="git篇-分支管理">Git篇: 分支管理</h1>
-<h2 id="目录">目录</h2>
-<ul>
-<li><a href="#%e7%9b%ae%e5%bd%95">目录</a>
-</li>
-<li><a href="#%e5%88%86%e6%94%af%e7%ad%96%e7%95%a5">分支策略</a>
-</li>
-<li><a href="#%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86">分支管理</a>
-<ul>
-<li><a href="#%e6%9f%a5%e8%af%a2">查询</a>
-</li>
-<li><a href="#%e5%82%a8%e8%97%8f">储藏</a>
-</li>
-<li><a href="#%e5%88%9b%e5%bb%ba">创建</a>
-</li>
-<li><a href="#%e5%88%87%e6%8d%a2">切换</a>
-</li>
-<li><a href="#%e5%88%9b%e5%bb%ba%e5%b9%b6%e5%88%87%e6%8d%a2">创建并切换</a>
-</li>
-<li><a href="#%e5%90%88%e5%b9%b6">合并</a>
-<ul>
-<li><a href="#%e6%83%85%e5%86%b5%e4%b8%80%e5%8f%aa%e6%9c%89dev%e5%88%86%e6%94%af%e6%9b%b4%e6%96%b0%e4%ba%86">情况一：只有dev分支更新了</a>
-</li>
-<li><a href="#%e6%83%85%e5%86%b5%e4%ba%8cdev%e5%92%8cmaster%e5%88%86%e6%94%af%e9%83%bd%e6%9b%b4%e6%96%b0%e4%ba%86">情况二：dev和master分支都更新了</a>
-</li>
-<li><a href="#%e5%90%88%e5%b9%b6%e6%80%bb%e7%bb%93">合并总结</a>
-</li>
-</ul>
-</li>
-<li><a href="#%e5%88%a0%e9%99%a4">删除</a>
-</li>
-<li><a href="#%e5%bb%ba%e8%ae%ae">建议</a>
-</li>
-</ul>
-</li>
-</ul>
 <blockquote>
 <p>此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。</p></blockquote>
 <p>那么上一章我们已经学会了如何撤销删除文件或操作，接下来我们就来学习分支管理。</p>
@@ -275,7 +214,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch dev
 </span></span></code></pre></div><p><div class="not-prose">
 <figure>
-    <img src="Git%e4%b9%8b%e6%97%85%283%29.assets/image-20250502172256477.png"
+    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-1.png"
       alt="image-20250502172256477" 
       loading="lazy"
     >
@@ -286,106 +225,21 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout dev
 </span></span></code></pre></div><p><div class="not-prose">
 <figure>
-    <img src="Git%e4%b9%8b%e6%97%85%283%29.assets/image-20250502172307958.png"
+    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-2.png"
       alt="image-20250502172307958" 
       loading="lazy"
     >
   </figure></div>
 </p>
->>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
+<p>也许你会不理解，主分支怎么可以切换呢？就像是本体和分身的身份怎么能切换？然而，git对于主分支的概念并不一样，主分支<strong>并不是独一无二的</strong>，它是由<strong>HEAD指针</strong>来指向的，HEAD指向谁，谁就是git概念上的主分支。</p>
+<p>而我们在实际开发和使用过程中，通常会固定使用<strong>main</strong>或者<strong>master</strong>来充当<strong>本体</strong>，分支对应的功能开发和测试完毕再合并到<strong>主分支</strong>中，就像是分身把它写完的作业给你一样。</p>
+<h3 id="创建并切换">创建并切换</h3>
+<p>如果你想创建一个dev分支并切换到dev分支上，你可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git chechout -b dev
+</span></span></code></pre></div><p>唯一的优点是简洁，毕竟一行命令就解决了。</p>
+<h3 id="合并">合并</h3>
+<p>如果你想把dev分支合并到master分支上，你可以使用以下命令：</p>
   </div>
-
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M6.5 7h11"></path>
-   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
-   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
-</svg>
-
-    </i>
-    <span>
-      One minute to read
-    </span>
-  </div>
-</div>
-
-              
-            </div>
-          </article>
-        
-          <article class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
-            <div>
-              <a href="/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">
-                
-              </a>
-            </div>
-            <div class="flex flex-col gap-y-3 p-6">
-              <h2 class="text-4xl font-semibold text-slate-800 dark:text-slate-200">
-                <a href="/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">Git篇(2): 撤销和删除</a>
-              </h2>
-
-              
-  
-
-
-              
-
-
-              <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
-  
-  
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
-   <path d="M16 3v4"></path>
-   <path d="M8 3v4"></path>
-   <path d="M4 11h16"></path>
-   <path d="M11 15h1"></path>
-   <path d="M12 15v3"></path>
-</svg>
-
-    </i>
-    <time datetime="2025-04-25T23:37:09&#43;08:00">
-      2025-04-25
-    </time>
-  </div>
-
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M6.5 7h11"></path>
-   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
-   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
-</svg>
-
-    </i>
-    <span>
-      One minute to read
-    </span>
-  </div>
-</div>
-
-              
-            </div>
-          </article>
-        
-          <article class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
-            <div>
-              <a href="/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/">
-                
-              </a>
-            </div>
-            <div class="flex flex-col gap-y-3 p-6">
-              <h2 class="text-4xl font-semibold text-slate-800 dark:text-slate-200">
-                <a href="/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/">Git篇(1): 创建与添加</a>
-              </h2>
-
-              
   
 
 
