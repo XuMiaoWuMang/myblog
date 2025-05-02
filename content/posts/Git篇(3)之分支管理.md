@@ -4,7 +4,12 @@ draft = true
 title = 'Git篇(3): 分支管理'
 +++
 
+<<<<<<< HEAD
 <!--more-->
+=======
+<!-- more -->
+# Git篇: 分支管理
+>>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
 
 > 此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。
 
@@ -81,7 +86,11 @@ git stash list
 git branch dev
 ```
 
+<<<<<<< HEAD
 ![image-20250502172256477](Git篇(3)之分支管理.assert/image-1.png)
+=======
+![image-20250502172256477](Git之旅(3).assets/image-20250502172256477.png)
+>>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
 
 ### 切换
 
@@ -91,7 +100,11 @@ git branch dev
 git checkout dev
 ```
 
+<<<<<<< HEAD
 ![image-20250502172307958](Git篇(3)之分支管理.assert/image-2.png)
+=======
+![image-20250502172307958](Git之旅(3).assets/image-20250502172307958.png)
+>>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
 
 也许你会不理解，主分支怎么可以切换呢？就像是本体和分身的身份怎么能切换？然而，git对于主分支的概念并不一样，主分支**并不是独一无二的**，它是由**HEAD指针**来指向的，HEAD指向谁，谁就是git概念上的主分支。
 
@@ -124,7 +137,11 @@ git merge dev
 
 如图：
 
+<<<<<<< HEAD
 ![image-20250502172333392](Git篇(3)之分支管理.assert/image-3.png)
+=======
+![image-20250502172333392](Git之旅(3).assets/image-20250502172333392.png)
+>>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
 
 也许你会有疑问，那如果dev进行了多次版本提交，你不炸了吗？
 
@@ -134,7 +151,11 @@ git merge dev
 
 如图：
 
+<<<<<<< HEAD
 ![image-20250502175124865](Git篇(3)之分支管理.assert/image-4.png)
+=======
+![image-20250502175124865](Git之旅(3).assets/image-20250502175124865.png)
+>>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
 
 如果dev和master对相同的地方做了不同的修改，那么此时就会发生合并冲突。
 

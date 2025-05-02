@@ -28,7 +28,11 @@ title = 'Git篇(2): 撤销和删除'
 
 HEAD是指版本库目前所在的版本，后面的n表示的是你想回退几次版本，回退到上一个版本的话，n=1。
 ```bash
+<<<<<<< HEAD
 git reset [--option] HEAD~n
+=======
+git reset [--option] HEAD^n
+>>>>>>> 3c635eba438faf6b806575daa7a6d569afa2edd4
 ```
 
 --soft：回退到指定版本，保留工作区和暂存区，不删除工作区的修改。
