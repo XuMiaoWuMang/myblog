@@ -247,7 +247,9 @@
 <p>首先，我们<strong>先后</strong>往工作区中添加了<strong>git</strong>和<strong>code</strong>文件，随后执行了add和commit命令，所以我们的工作区、暂存区和版本库都有了相同的文件，即git文件和code文件。</p>
 <h3 id="各种方法撤回修改">各种方法撤回修改</h3>
 <h4 id="对于reset方法">对于reset方法：</h4>
-<p>&ndash;soft：回退到指定版本，保留工作区和暂存区，不删除工作区的修改。</p>
+<p>HEAD是指版本库目前所在的版本，后面的n表示的是你想回退几次版本，回退到上一个版本的话，n=1。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset <span class="o">[</span>--option<span class="o">]</span> HEAD^n
+</span></span></code></pre></div><p>&ndash;soft：回退到指定版本，保留工作区和暂存区，不删除工作区的修改。</p>
 <p>&ndash;mixed：回退到指定版本，保留工作区，删除暂存区的修改。</p>
 <p>&ndash;hard：回退到指定版本，删除工作区和暂存区的修改。</p>
 <table>
@@ -285,7 +287,7 @@
 <blockquote>
 <p>使用<code>git reflog</code>可以查看历史记录，包括各种回退记录都能看到。</p></blockquote>
 <h4 id="对于checkout-方法">对于checkout &ndash;方法：</h4>
-<p><code>git checkout -- &lt;file&gt;</code>可以撤销工作区中指定文件的修改，适合精细化操作，对单个文件撤销。</p>
+<p><code>git checkout -- &lt;file id&gt;</code>可以撤销工作区中指定文件的修改，适合精细化操作，对单个文件撤销。</p>
 <h3 id="对于各种情况的撤销修改">对于各种情况的撤销修改</h3>
 <p>如果说上个版本只有git代码，而code代码则是作为新增文件存在同时也是我们要撤回的代码，那么我们面对不同的情况，可以进行以下操作：</p>
 <table>
@@ -398,6 +400,27 @@
 
   </footer>
   <script src="/main.js"></script>
+
+<div class="hidden top-1 right-1" id="code-copy">
+  <i class="h-6 w-6 block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+</svg>
+
+  </i>
+</div>
+<div class="hidden top-1 right-1" id="code-copy-done">
+  <i class="h-6 w-6 block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l5 5l10 -10" />
+</svg>
+
+  </i>
+</div><script src="/code-copy.js"></script>
+
 
 
 
