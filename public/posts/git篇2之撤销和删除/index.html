@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>Git之旅（1） :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
+  <title>Git篇(2): 撤销和删除 :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,21 +13,21 @@
   name="keywords"
   content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
 />
-<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git/">
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">
   <meta property="og:site_name" content="Hugo Theme Tailwind Example Site">
-  <meta property="og:title" content="Git之旅（1）">
+  <meta property="og:title" content="Git篇(2): 撤销和删除">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-04-22T21:15:34+08:00">
-    <meta property="article:modified_time" content="2025-04-22T21:15:34+08:00">
+    <meta property="article:published_time" content="2025-04-25T23:37:09+08:00">
+    <meta property="article:modified_time" content="2025-04-25T23:37:09+08:00">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Git之旅（1）">
+  <meta name="twitter:title" content="Git篇(2): 撤销和删除">
 
 
-<link rel="canonical" href="http://localhost:1313/posts/git/" />
+<link rel="canonical" href="http://localhost:1313/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/" />
 
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="stylesheet" href="/css/index.d6c3044e2ccd17f959e01250645c77d28de7db3e6614a18e762198e9bf30fb5b.css">
@@ -158,13 +158,13 @@
 <div class="w-full max-w-4xl lg:max-w-5xl">
   <div class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
     <div>
-      <a href="/posts/git/">
+      <a href="/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">
         
       </a>
     </div>
     <div class="flex flex-col gap-y-3 p-6">
       <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
-        <a href="/posts/git/">Git之旅（1）</a>
+        <a href="/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">Git篇(2): 撤销和删除</a>
       </h1>
 
       
@@ -187,8 +187,8 @@
 </svg>
 
     </i>
-    <time datetime="2025-04-22T21:15:34&#43;08:00">
-      2025-04-22
+    <time datetime="2025-04-25T23:37:09&#43;08:00">
+      2025-04-25
     </time>
   </div>
 
@@ -216,20 +216,18 @@
           <h2>Table of Contents</h2>
           <aside><nav id="TableOfContents">
   <ul>
-    <li><a href="#准备工作">准备工作</a>
+    <li><a href="#撤销修改">撤销修改</a>
       <ul>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#卸载">卸载</a></li>
-        <li><a href="#初始化">初始化</a></li>
-        <li><a href="#配置用户名与邮箱">配置用户名与邮箱</a></li>
+        <li><a href="#各种方法撤回修改">各种方法撤回修改</a></li>
+        <li><a href="#对于各种情况的撤销修改">对于各种情况的撤销修改</a></li>
       </ul>
     </li>
-    <li><a href="#使用">使用</a>
+    <li><a href="#删除文件">删除文件</a>
       <ul>
-        <li><a href="#修改与保存">修改与保存</a></li>
+        <li><a href="#删除工作区中的文件">删除工作区中的文件</a></li>
       </ul>
     </li>
-    <li><a href="#结尾">结尾</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav></aside>
         </section>
@@ -237,75 +235,120 @@
       
 
       <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
-        <h1 id="git篇相逢即是缘">Git篇：相逢即是缘</h1>
+        <h1 id="git篇-撤销和删除">Git篇: 撤销和删除</h1>
 <blockquote>
 <p>此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。</p></blockquote>
-<p>一言以蔽之：git是一种版本管理器。</p>
-<p>如果你是一名大学生，你想写一个图书管理系统作为毕设，但是给导师看了之后发现这个系统极其简陋，只有登入和注册功能，导师要求你增加图书检索功能。增加之后，导师说不要全字匹配，要模糊匹配。修改之后，导师又说我全都要。</p>
-<p>毫无疑问，此时的你已经把全字匹配的代码删的一干二净了，你现在急需时光机回到修改之前。一听就让人头大，于是git作为解决这种情况的工具横空出世!</p>
-<h2 id="准备工作">准备工作</h2>
-<h3 id="安装">安装</h3>
-<p>只需复制这行代码到linux中然后一路敲回车键即可获得git。</p>
+<p>在上一篇文章中，我们已经学会了如何简单添加本地的git仓库，接下来，我们将深入学习如何使用git来管理我们本地仓库的代码。</p>
+<p>在开始之前，我希望大家明确一个小小的时间线。</p>
+<p>即：版本库是<u><strong>最旧的</strong></u>，工作区是<u><strong>最新的</strong></u>，而暂存区在<u><strong>二者之间</strong></u>。</p>
+<h2 id="撤销修改">撤销修改</h2>
+<p>在日常生活中，我们常常会遇到一些错误，比如，我们不小心说错了话，做错了事，我们总是会想，要是我没***，要是我不***……之类的想法，这种想法在使用git时也是非常常见的，接下来，我们就来学习一下如何撤销修改。</p>
+<p>为了只观的看出不同方法的差别和其应对情况，以下表格请认真查看：</p>
+<p>首先，我们<strong>先后</strong>往工作区中添加了<strong>git</strong>和<strong>code</strong>文件，随后执行了add和commit命令，所以我们的工作区、暂存区和版本库都有了相同的文件，即git文件和code文件。</p>
+<h3 id="各种方法撤回修改">各种方法撤回修改</h3>
+<h4 id="对于reset方法">对于reset方法：</h4>
+<p>HEAD是指版本库目前所在的版本，后面的n表示的是你想回退几次版本，回退到上一个版本的话，n=1。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset <span class="o">[</span>--option<span class="o">]</span> HEAD^n
+</span></span></code></pre></div><p>&ndash;soft：回退到指定版本，保留工作区和暂存区，不删除工作区的修改。</p>
+<p>&ndash;mixed：回退到指定版本，保留工作区，删除暂存区的修改。</p>
+<p>&ndash;hard：回退到指定版本，删除工作区和暂存区的修改。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">工作区（git code）</th>
+          <th style="text-align: center">暂存区（git code）</th>
+          <th style="text-align: center">版本库（git code）</th>
+          <th style="text-align: center">reset选项</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">git code</td>
+          <td style="text-align: center">git code</td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">&ndash;soft</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">git code</td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">&ndash;mixed (默认选项)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">&ndash;hard(<strong>慎用</strong>)</td>
+      </tr>
+  </tbody>
+</table>
+<p>解释：由于是先添加git文件，然后添加code文件，所以，code文件是新的，git文件是旧的，而给<code>--soft</code>就是让版本库回到旧状态，即只有git的时候。<code>--mixed</code>就是让版本库和暂存区都回到旧状态。<code>--hard</code>就是让版本库、暂存区和工作区都回到旧状态。</p>
+<p>当然，你也可以直接使用<code>git reset HEAD</code>，默认就是<code>--mixed</code>选项。</p>
 <blockquote>
-<p>[!CAUTION]</p>
-<p>注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。</p></blockquote>
-<pre tabindex="0"><code>sudo apt install git
-</code></pre><h3 id="卸载">卸载</h3>
-<p>与使用差不多，唯一变了的就是install，变成了remove。</p>
-<pre tabindex="0"><code>sudo apt remove git
-</code></pre><h3 id="初始化">初始化</h3>
-<p>在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。</p>
-<pre tabindex="0"><code>mkdir [目录名]
-</code></pre><p>先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。</p>
+<p>使用<code>git reflog</code>可以查看历史记录，包括各种回退记录都能看到。</p></blockquote>
+<h4 id="对于checkout-方法">对于checkout &ndash;方法：</h4>
+<p><code>git checkout -- &lt;file id&gt;</code>可以撤销工作区中指定文件的修改，适合精细化操作，对单个文件撤销。</p>
+<h3 id="对于各种情况的撤销修改">对于各种情况的撤销修改</h3>
+<p>如果说上个版本只有git代码，而code代码则是作为新增文件存在同时也是我们要撤回的代码，那么我们面对不同的情况，可以进行以下操作：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">目的</th>
+          <th style="text-align: center">工作区（git code）</th>
+          <th style="text-align: center">暂存区（git code）</th>
+          <th style="text-align: center">版本库（git code）</th>
+          <th style="text-align: center">操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">撤销工作区中的内容</td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">checkout &ndash;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">撤销工作区、暂存区中的内容</td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">git</td>
+          <td style="text-align: center">(reset &ndash;mixed搭配checkout &ndash;) 或者reset &ndash;hard</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">撤销工作区、暂存区和版本库中的内容</td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">reset &ndash;hard</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">撤销暂存区、版本库中的内容</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">reset &ndash;mixed</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">撤销版本库中的内容</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">git <del>code</del></td>
+          <td style="text-align: center">reset &ndash;soft</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="删除文件">删除文件</h2>
+<p>在git中，删除文件也是一个非常常见的操作，接下来，我们就来学习一下如何删除文件。</p>
+<h3 id="删除工作区中的文件">删除工作区中的文件</h3>
+<h4 id="方法一">方法一：</h4>
+<p>使用<code>rm &lt;file&gt;</code>可以删除工作区中的文件，但是，此时版本库和暂存区中的文件并没有被删除，所以，我们需要使用<code>git add &lt;file&gt;</code>来将删除操作添加到暂存区，随后使用<code>git commit -m &quot;删除文件&quot;</code>来将删除操作提交到版本库。</p>
+<h4 id="方法二">方法二：</h4>
+<p>使用<code>git rm &lt;file&gt;</code>可以删除版本库中的文件，此时，工作区和暂存区中的文件也会被删除，所以，我们不需要再使用<code>git add &lt;file&gt;</code>来将删除操作添加到暂存区，随后使用<code>git commit -m &quot;删除文件&quot;</code>来将删除操作提交到版本库。</p>
 <blockquote>
-<p>[!CAUTION]</p>
-<p>如非必要，不要修改.git目录下的任何内容，除非你是git高手。</p></blockquote>
-<pre tabindex="0"><code>git init
-</code></pre><p>如果对这个隐藏目录好奇可以用<code>tree .git/</code>来直观地看。</p>
-<h3 id="配置用户名与邮箱">配置用户名与邮箱</h3>
-<p>用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。</p>
-<pre tabindex="0"><code>git config user.name &#34;xumiao&#34;
-git config user.email &#34;xumiao@email.com&#34;
-</code></pre><p>我怎么知道我修改成功与否呢？用以下命令即可。</p>
-<pre tabindex="0"><code>git config -l
-</code></pre><p>如果想要将其置空，则可以使用以下命令来置空。</p>
-<pre tabindex="0"><code>git config --unset user.name 
-git config --unset user.email
-</code></pre><p>还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：</p>
-<pre tabindex="0"><code>git config --global user.name &#34;xumiao&#34;
-git config --global user.email &#34;xumiao@email.com&#34;
-</code></pre><blockquote>
-<p>[!WARNING]</p>
-<p>请注意，使用了<code>--global</code>命令配置的用户名是不会被上述命令置空和修改的。</p></blockquote>
-<p>对应的置空命令为：</p>
-<pre tabindex="0"><code>git config --global --unset user.name 
-git config --global --unset user.email
-</code></pre><p>如果你够细心的话就会发现，没加<code>--global</code>的用户名在<code>git config -l</code>的最下面，加了<code>global</code>的用户名则在<code>git config -l</code>的最上面。</p>
-<blockquote>
-<p>[!IMPORTANT]</p>
-<p>走到这里，你已经完成了git仓库的初始化了，接下来就是用git简单地管理仓库内的各种文件了！</p></blockquote>
-<h2 id="使用">使用</h2>
-<p>毫无疑问，前置工作都已完成，那么接下来就是重要的git的真正的使用方法了。</p>
-<blockquote>
-<p>[!NOTE]</p>
-<p>除非你是git高手，不然的话不要修改.git隐藏目录！包括之后你往这个仓库里添加的各种文件与代码都不要放到.git中！</p></blockquote>
-<p>我们将仓库目录下除.git文件外的所有空间称作工作区。</p>
-<h3 id="修改与保存">修改与保存</h3>
-<blockquote>
-<p>[!NOTE]</p>
-<p>git的add功能只能让修改的文件与代码暂时存在暂存区，它并__不会__将修改的内容提交到__master分支__下。</p></blockquote>
-<p>你可以使用add命令，为了应对你后悔的情况，它只会将你修改完的东西放到.git文件的暂存区中。你可以add后面一次接多个文件名，也可以加个<code>.</code>，它都会将对应的文件保存在暂存区中，区别在于一个是无脑将当前目录下的所有文件都放到暂存区中，一个是精细化地将对应的文件放入暂存区中。</p>
-<pre tabindex="0"><code>git add [.][file-name][...]
-</code></pre><p>使用<code>commit</code>命令，将仓库真正修改！</p>
-<p><code>-m</code>是必须有的！后面接双引号，是表示这次你做了什么，但是，这个是你自己填写的，相当于注释，方便以后想要找到特定版本时能够快速定位。</p>
-<pre tabindex="0"><code>git commit -m &#34;注释&#34; 
-</code></pre><p>使用<code>log</code>命令，打印日志，方便找到对应的版本及其ID。<code>--pretty=one</code>可以只打印ID和对应的注释，舍去修改者和时间，方便根据注释找特定版本。</p>
-<blockquote>
-<p>commit后面对应的就是版本的ID，是十六进制哈希值，HEAD指向最新版本</p></blockquote>
-<pre tabindex="0"><code>git log
-git log --pretty=one
-</code></pre><h2 id="结尾">结尾</h2>
-<p>好了，你已经会git的基本操作了，去管理你的本地仓库吧！</p>
+<p>其他的删除其他区的操作这里就不展开了，比如<code>git reset HEAD &lt;file&gt;</code>，毕竟本系列主打一个能用就行。</p></blockquote>
+<h2 id="总结">总结</h2>
+<p>本篇文章主要讲述了如何撤销修改和删除文件，希望对大家有所帮助。</p>
       </article>
 
       

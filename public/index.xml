@@ -9,14 +9,28 @@
     <managingEditor>user@example.com (Hugo Author)</managingEditor>
     <webMaster>user@example.com (Hugo Author)</webMaster>
     <copyright>XuMiao</copyright>
-    <lastBuildDate>Tue, 22 Apr 2025 21:15:34 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 May 2025 20:41:28 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Git</title>
-      <link>http://localhost:1313/posts/git/</link>
+      <title>Git篇(3): 分支管理</title>
+      <link>http://localhost:1313/posts/git%E7%AF%873%E4%B9%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Fri, 02 May 2025 20:41:28 +0800</pubDate><author>user@example.com (Hugo Author)</author>
+      <guid>http://localhost:1313/posts/git%E7%AF%873%E4%B9%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git篇(2): 撤销和删除</title>
+      <link>http://localhost:1313/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/</link>
+      <pubDate>Fri, 25 Apr 2025 23:37:09 +0800</pubDate><author>user@example.com (Hugo Author)</author>
+      <guid>http://localhost:1313/posts/git%E7%AF%872%E4%B9%8B%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git篇(1): 创建与添加</title>
+      <link>http://localhost:1313/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/</link>
       <pubDate>Tue, 22 Apr 2025 21:15:34 +0800</pubDate><author>user@example.com (Hugo Author)</author>
-      <guid>http://localhost:1313/posts/git/</guid>
-      <description>&lt;h1 id=&#34;git篇相逢即是缘&#34;&gt;Git篇：相逢即是缘&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;一言以蔽之：git是一种版本管理器。&lt;/p&gt;&#xA;&lt;p&gt;如果你是一名大学生，你想写一个图书管理系统作为毕设，但是给导师看了之后发现这个系统极其简陋，只有登入和注册功能，导师要求你增加图书检索功能。增加之后，导师说不要全字匹配，要模糊匹配。修改之后，导师又说我全都要。&lt;/p&gt;&#xA;&lt;p&gt;毫无疑问，此时的你已经把全字匹配的代码删的一干二净了，你现在急需时光机回到修改之前。一听就让人头大，于是git作为解决这种情况的工具横空出世!&lt;/p&gt;&#xA;&lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;&#xA;&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;&#xA;&lt;p&gt;只需复制这行代码到linux中然后一路敲回车键即可获得git。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!CAUTION]&lt;/p&gt;&#xA;&lt;p&gt;注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install git&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;卸载&#34;&gt;卸载&lt;/h3&gt;&#xA;&lt;p&gt;与使用差不多，唯一变了的就是install，变成了remove。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt remove git&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;初始化&#34;&gt;初始化&lt;/h3&gt;&#xA;&lt;p&gt;在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir [目录名]&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;[!CAUTION]&lt;/p&gt;&#xA;&lt;p&gt;如非必要，不要修改.git目录下的任何内容，除非你是git高手。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git init&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果对这个隐藏目录好奇可以用&lt;code&gt;tree .git/&lt;/code&gt;来直观地看。&lt;/p&gt;&#xA;&lt;h3 id=&#34;配置用户名与邮箱&#34;&gt;配置用户名与邮箱&lt;/h3&gt;&#xA;&lt;p&gt;用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config user.name &amp;#34;xumiao&amp;#34;&#xA;git config user.email &amp;#34;xumiao@email.com&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我怎么知道我修改成功与否呢？用以下命令即可。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config -l&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果想要将其置空，则可以使用以下命令来置空。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --unset user.name &#xA;git config --unset user.email&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --global user.name &amp;#34;xumiao&amp;#34;&#xA;git config --global user.email &amp;#34;xumiao@email.com&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;[!WARNING]&lt;/p&gt;&#xA;&lt;p&gt;请注意，使用了&lt;code&gt;--global&lt;/code&gt;命令配置的用户名是不会被上述命令置空和修改的。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;对应的置空命令为：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --global --unset user.name &#xA;git config --global --unset user.email&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你够细心的话就会发现，没加&lt;code&gt;--global&lt;/code&gt;的用户名在&lt;code&gt;git config -l&lt;/code&gt;的最下面，加了&lt;code&gt;global&lt;/code&gt;的用户名则在&lt;code&gt;git config -l&lt;/code&gt;的最上面。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/</guid>
+      <description></description>
     </item>
     <item>
       <title></title>

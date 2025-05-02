@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>Git之旅（1） :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
+  <title>Git篇(1): 创建与添加 :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +13,9 @@
   name="keywords"
   content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
 />
-<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git/">
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/">
   <meta property="og:site_name" content="Hugo Theme Tailwind Example Site">
-  <meta property="og:title" content="Git之旅（1）">
+  <meta property="og:title" content="Git篇(1): 创建与添加">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,10 +24,10 @@
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Git之旅（1）">
+  <meta name="twitter:title" content="Git篇(1): 创建与添加">
 
 
-<link rel="canonical" href="http://localhost:1313/posts/git/" />
+<link rel="canonical" href="http://localhost:1313/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/" />
 
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="stylesheet" href="/css/index.d6c3044e2ccd17f959e01250645c77d28de7db3e6614a18e762198e9bf30fb5b.css">
@@ -158,13 +158,13 @@
 <div class="w-full max-w-4xl lg:max-w-5xl">
   <div class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
     <div>
-      <a href="/posts/git/">
+      <a href="/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/">
         
       </a>
     </div>
     <div class="flex flex-col gap-y-3 p-6">
       <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
-        <a href="/posts/git/">Git之旅（1）</a>
+        <a href="/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/">Git篇(1): 创建与添加</a>
       </h1>
 
       
@@ -227,6 +227,7 @@
     <li><a href="#使用">使用</a>
       <ul>
         <li><a href="#修改与保存">修改与保存</a></li>
+        <li><a href="#查看仓库状态">查看仓库状态</a></li>
       </ul>
     </li>
     <li><a href="#结尾">结尾</a></li>
@@ -237,9 +238,9 @@
       
 
       <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
-        <h1 id="git篇相逢即是缘">Git篇：相逢即是缘</h1>
+        <h1 id="git篇-创建与添加">Git篇: 创建与添加</h1>
 <blockquote>
-<p>此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。</p></blockquote>
+<p>此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。本系列文章不会太过深究git如何运作，各个操作的隐性机制，主打一个能用就行。</p></blockquote>
 <p>一言以蔽之：git是一种版本管理器。</p>
 <p>如果你是一名大学生，你想写一个图书管理系统作为毕设，但是给导师看了之后发现这个系统极其简陋，只有登入和注册功能，导师要求你增加图书检索功能。增加之后，导师说不要全字匹配，要模糊匹配。修改之后，导师又说我全都要。</p>
 <p>毫无疑问，此时的你已经把全字匹配的代码删的一干二净了，你现在急需时光机回到修改之前。一听就让人头大，于是git作为解决这种情况的工具横空出世!</p>
@@ -247,65 +248,61 @@
 <h3 id="安装">安装</h3>
 <p>只需复制这行代码到linux中然后一路敲回车键即可获得git。</p>
 <blockquote>
-<p>[!CAUTION]</p>
 <p>注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。</p></blockquote>
-<pre tabindex="0"><code>sudo apt install git
-</code></pre><h3 id="卸载">卸载</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install git
+</span></span></code></pre></div><h3 id="卸载">卸载</h3>
 <p>与使用差不多，唯一变了的就是install，变成了remove。</p>
-<pre tabindex="0"><code>sudo apt remove git
-</code></pre><h3 id="初始化">初始化</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt remove git
+</span></span></code></pre></div><h3 id="初始化">初始化</h3>
 <p>在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。</p>
-<pre tabindex="0"><code>mkdir [目录名]
-</code></pre><p>先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir <span class="o">[</span>目录名<span class="o">]</span>
+</span></span></code></pre></div><p>先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。</p>
 <blockquote>
-<p>[!CAUTION]</p>
 <p>如非必要，不要修改.git目录下的任何内容，除非你是git高手。</p></blockquote>
-<pre tabindex="0"><code>git init
-</code></pre><p>如果对这个隐藏目录好奇可以用<code>tree .git/</code>来直观地看。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span></code></pre></div><p>如果对这个隐藏目录好奇可以用<code>tree .git/</code>来直观地看。</p>
 <h3 id="配置用户名与邮箱">配置用户名与邮箱</h3>
 <p>用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。</p>
-<pre tabindex="0"><code>git config user.name &#34;xumiao&#34;
-git config user.email &#34;xumiao@email.com&#34;
-</code></pre><p>我怎么知道我修改成功与否呢？用以下命令即可。</p>
-<pre tabindex="0"><code>git config -l
-</code></pre><p>如果想要将其置空，则可以使用以下命令来置空。</p>
-<pre tabindex="0"><code>git config --unset user.name 
-git config --unset user.email
-</code></pre><p>还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：</p>
-<pre tabindex="0"><code>git config --global user.name &#34;xumiao&#34;
-git config --global user.email &#34;xumiao@email.com&#34;
-</code></pre><blockquote>
-<p>[!WARNING]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config user.name <span class="s2">&#34;xumiao&#34;</span>
+</span></span><span class="line"><span class="cl">git config user.email <span class="s2">&#34;xumiao@email.com&#34;</span>
+</span></span></code></pre></div><p>我怎么知道我修改成功与否呢？用以下命令即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config -l
+</span></span></code></pre></div><p>如果想要将其置空，则可以使用以下命令来置空。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --unset user.name 
+</span></span><span class="line"><span class="cl">git config --unset user.email
+</span></span></code></pre></div><p>还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;xumiao&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;xumiao@email.com&#34;</span>
+</span></span></code></pre></div><blockquote>
 <p>请注意，使用了<code>--global</code>命令配置的用户名是不会被上述命令置空和修改的。</p></blockquote>
 <p>对应的置空命令为：</p>
-<pre tabindex="0"><code>git config --global --unset user.name 
-git config --global --unset user.email
-</code></pre><p>如果你够细心的话就会发现，没加<code>--global</code>的用户名在<code>git config -l</code>的最下面，加了<code>global</code>的用户名则在<code>git config -l</code>的最上面。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global --unset user.name 
+</span></span><span class="line"><span class="cl">git config --global --unset user.email
+</span></span></code></pre></div><p>如果你够细心的话就会发现，没加<code>--global</code>的用户名在<code>git config -l</code>的最下面，加了<code>global</code>的用户名则在<code>git config -l</code>的最上面。</p>
 <blockquote>
-<p>[!IMPORTANT]</p>
 <p>走到这里，你已经完成了git仓库的初始化了，接下来就是用git简单地管理仓库内的各种文件了！</p></blockquote>
 <h2 id="使用">使用</h2>
 <p>毫无疑问，前置工作都已完成，那么接下来就是重要的git的真正的使用方法了。</p>
 <blockquote>
-<p>[!NOTE]</p>
-<p>除非你是git高手，不然的话不要修改.git隐藏目录！包括之后你往这个仓库里添加的各种文件与代码都不要放到.git中！</p></blockquote>
+<p>除非你是git高手，不然的话不要手动修改.git隐藏目录！包括之后你往这个仓库里添加的各种文件与代码都不要放到.git中！</p></blockquote>
 <p>我们将仓库目录下除.git文件外的所有空间称作工作区。</p>
 <h3 id="修改与保存">修改与保存</h3>
 <blockquote>
-<p>[!NOTE]</p>
 <p>git的add功能只能让修改的文件与代码暂时存在暂存区，它并__不会__将修改的内容提交到__master分支__下。</p></blockquote>
-<p>你可以使用add命令，为了应对你后悔的情况，它只会将你修改完的东西放到.git文件的暂存区中。你可以add后面一次接多个文件名，也可以加个<code>.</code>，它都会将对应的文件保存在暂存区中，区别在于一个是无脑将当前目录下的所有文件都放到暂存区中，一个是精细化地将对应的文件放入暂存区中。</p>
-<pre tabindex="0"><code>git add [.][file-name][...]
-</code></pre><p>使用<code>commit</code>命令，将仓库真正修改！</p>
+<p>你可以使用add命令，为了应对你后悔的情况，它只会将你修改完的东西放到.git文件的暂存区中。你可以add后面一次接多个文件名或者是多个文件夹，也可以加个<code>.</code>，它都会将对应的文件保存在暂存区中，区别在于一个是无脑将当前目录下的所有文件都放到暂存区中，一个是精细化地将对应的文件放入暂存区中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add <span class="o">[</span>./file-name/...<span class="o">]</span>
+</span></span></code></pre></div><p>使用<code>commit</code>命令，将仓库真正修改！</p>
 <p><code>-m</code>是必须有的！后面接双引号，是表示这次你做了什么，但是，这个是你自己填写的，相当于注释，方便以后想要找到特定版本时能够快速定位。</p>
-<pre tabindex="0"><code>git commit -m &#34;注释&#34; 
-</code></pre><p>使用<code>log</code>命令，打印日志，方便找到对应的版本及其ID。<code>--pretty=one</code>可以只打印ID和对应的注释，舍去修改者和时间，方便根据注释找特定版本。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;注释&#34;</span> 
+</span></span></code></pre></div><p>使用<code>log</code>命令，打印日志，方便找到对应的版本及其ID。<code>--pretty=one</code>可以只打印ID和对应的注释，舍去修改者和时间，方便根据注释找特定版本。</p>
 <blockquote>
 <p>commit后面对应的就是版本的ID，是十六进制哈希值，HEAD指向最新版本</p></blockquote>
-<pre tabindex="0"><code>git log
-git log --pretty=one
-</code></pre><h2 id="结尾">结尾</h2>
-<p>好了，你已经会git的基本操作了，去管理你的本地仓库吧！</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
+</span></span><span class="line"><span class="cl">git log --pretty<span class="o">=</span>one
+</span></span></code></pre></div><h3 id="查看仓库状态">查看仓库状态</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git status
+</span></span></code></pre></div><h2 id="结尾">结尾</h2>
+<p>好了，你已经会创建和添加git仓库的基本操作了，去创建属于你的本地仓库吧！</p>
       </article>
 
       

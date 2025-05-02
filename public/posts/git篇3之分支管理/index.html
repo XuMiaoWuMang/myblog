@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Git篇(3): 分支管理 :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content=""
+/>
+<meta
+  name="keywords"
+  content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
+/>
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git%E7%AF%873%E4%B9%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
+  <meta property="og:site_name" content="Hugo Theme Tailwind Example Site">
+  <meta property="og:title" content="Git篇(3): 分支管理">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-02T20:41:28+08:00">
+    <meta property="article:modified_time" content="2025-05-02T20:41:28+08:00">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Git篇(3): 分支管理">
+
+
+<link rel="canonical" href="http://localhost:1313/posts/git%E7%AF%873%E4%B9%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/index.d6c3044e2ccd17f959e01250645c77d28de7db3e6614a18e762198e9bf30fb5b.css">
+
+
+
+
+
+
+
+
+
+  
+  
+
+</head>
+<body class="flex flex-col min-h-screen w-full bg-slate-50 dark:bg-gray-800">
+    
+<div class="fixed right-0 top-0 z-50 flex items-center justify-center bg-gray-200 p-2 text-sm uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
+  <span class="block sm:hidden">all</span>
+  <span class="hidden sm:block md:hidden">sm</span>
+  <span class="hidden md:block lg:hidden">md</span>
+  <span class="hidden lg:block xl:hidden">lg</span>
+  <span class="hidden xl:block 2xl:hidden">xl</span>
+  <span class="hidden 2xl:block">2xl</span>
+</div>
+
+  <header class="flex flex-none justify-center z-10">
+    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
+  <div class="flex-none ml-2 md:ml-0">
+    <a href="/" class="">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.webp" alt="logo">
+    </a>
+  </div>
+  
+  <div class="flex-1"></div>
+  <div class="flex-none">
+    
+
+
+
+<nav class="h-full static">
+  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
+    <span class="sr-only">Open main menu</span>
+    <i class="w-8 h-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>
+
+    </i>
+  </button>
+  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
+    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-xs md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
+    
+        <li id="post" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600 text-emerald-600"
+            href="/posts/" title="Post">Post</a>
+        </li>
+      
+    
+        <li id="about" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="" title="About">About</a>
+        </li>
+      
+    
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+  
+  <div class="flex-none mx-1"></div>
+  
+  <div class="flex-none md:hidden">
+    <a href=/search/ class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg" aria-controls="navbar-menu" aria-expanded="false">
+      <span class="sr-only">Search</span>
+      <i class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+    <path d="M21 21l-6 -6" />
+</svg>
+
+      </i>
+    </a>
+  </div>
+  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
+    <label for="darkmode-toggle" class="relative flex items-center gap-1 px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
+      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
+      <div class="absolute z-10 w-15 h-8 rounded-full bg-white dark:bg-gray-700"></div>
+      <i class="h-6 w-6 z-20 ml-1 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:invisible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+   <path d="M12 5l0 .01"></path>
+   <path d="M17 7l0 .01"></path>
+   <path d="M19 12l0 .01"></path>
+   <path d="M17 17l0 .01"></path>
+   <path d="M12 19l0 .01"></path>
+   <path d="M7 17l0 .01"></path>
+   <path d="M5 12l0 .01"></path>
+   <path d="M7 7l0 .01"></path>
+</svg>
+
+      </i>
+      <i class="h-6 w-6 z-20 mr-1 flex-none rounded-full place-self-center invisible peer-checked:visible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+   <path d="M19 11h2m-1 -1v2"></path>
+</svg>
+
+      </i>
+    </label>
+  </div>
+</div>
+
+  </header>
+  <main class="flex flex-auto justify-center">
+    
+<div id="progress" class="fixed top-0 left-0 w-full h-1 bg-blue-500"></div>
+<div class="w-full max-w-4xl lg:max-w-5xl">
+  <div class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
+    <div>
+      <a href="/posts/git%E7%AF%873%E4%B9%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
+        
+      </a>
+    </div>
+    <div class="flex flex-col gap-y-3 p-6">
+      <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
+        <a href="/posts/git%E7%AF%873%E4%B9%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">Git篇(3): 分支管理</a>
+      </h1>
+
+      
+      
+
+
+      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  
+  
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
+   <path d="M16 3v4"></path>
+   <path d="M8 3v4"></path>
+   <path d="M4 11h16"></path>
+   <path d="M11 15h1"></path>
+   <path d="M12 15v3"></path>
+</svg>
+
+    </i>
+    <time datetime="2025-05-02T20:41:28&#43;08:00">
+      2025-05-02
+    </time>
+  </div>
+
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6.5 7h11"></path>
+   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
+   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
+</svg>
+
+    </i>
+    <span>
+      One minute to read
+    </span>
+  </div>
+</div>
+
+      
+
+      
+        
+        <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
+          <h2>Table of Contents</h2>
+          <aside><nav id="TableOfContents">
+  <ul>
+    <li><a href="#分支策略">分支策略</a></li>
+    <li><a href="#分支管理">分支管理</a>
+      <ul>
+        <li><a href="#查询">查询</a></li>
+        <li><a href="#储藏">储藏</a></li>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#切换">切换</a></li>
+        <li><a href="#创建并切换">创建并切换</a></li>
+        <li><a href="#合并">合并</a></li>
+        <li><a href="#删除">删除</a></li>
+      </ul>
+    </li>
+    <li><a href="#建议">建议</a></li>
+  </ul>
+</nav></aside>
+        </section>
+        
+      
+
+      <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
+        <blockquote>
+<p>此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。</p></blockquote>
+<p>那么上一章我们已经学会了如何撤销删除文件或操作，接下来我们就来学习分支管理。</p>
+<p>如果你是高中生，那么你一定遇到过假期快结束了，作业却还有一大堆没写，如果有分身就好了，语数英各一个分身去写，本体负责玩。</p>
+<p>那么git的分支就与这个想法差不多，通过管理多个分支，最后与主分支合并，实现主分支不变，其他分支完成了不同功能的实现与测试。</p>
+<p>听起来就不错！</p>
+<h2 id="分支策略">分支策略</h2>
+<p>或者叫分支原则，意为在管理分支时所要遵守的原则。</p>
+<p><strong>master或main分支必须是稳定！</strong>
+分支的存在使多人协作开发成为显示，但是master分支是不可以在多人协作中让一个人单独修改的，只能是团队发布的稳定的新版本，一般是线上环境，如app、网站等，是面向大众的！而其他分支则是内部协作人员的开发环境，方便测试和修改bug，修完bug之后再合并到master分支上发布。</p>
+<h2 id="分支管理">分支管理</h2>
+<h3 id="查询">查询</h3>
+<p>如果你想知道当前的主分支是哪条，那么就可以输入以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch
+</span></span></code></pre></div><p>命令窗就会展示各个分支名，并在主分支前面标上一个*，让你明白谁才是<del>老大</del>主分支。</p>
+<h3 id="储藏">储藏</h3>
+<p>如果你担心master被别人偷偷修改而你自己又不能时刻盯着的话，不妨试试保存当前所有未提交的修改吧，使用以下命令：</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">git stash
+</code></pre><p>这个命令可以保存你当前的工作区所有未提交的修改，一般用于任务做到一半，却因为别的分支的事情，而不得不放弃当前分支，切换到其他分支。可以多次存储哦！git会将每一次的stash以栈的形式保存起来。</p>
+<p>实际开发中最好给stash加个message，用以下命令即可：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git stash save <span class="s2">&#34;&#34;</span>
+</span></span></code></pre></div><p>双引号中填写message内容即可。</p>
+<p>那么，你就可以使用<code>git stash</code>保存下来，如果你还想接着写可以用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git stash pop
+</span></span></code></pre></div><p>像栈一样pop出来。就可以恢复工作区的修改了。</p>
+<p>如果你要查看现有的stash，可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git stash list
+</span></span></code></pre></div><p>需要注意的是，stash只会保存你修改过的文件，没有修改过的文件和新添加的文件是不会保存的(被忽略的文件也是不会被保存的)</p>
+<blockquote>
+<p>能用就行，太多的暂时就不必学了。</p>
+<p>被忽略的文件指的是有.gitignore文件中所包含的文件名或目录，这个后面再写。</p></blockquote>
+<h3 id="创建">创建</h3>
+<p>如果你想创建一个dev分支，则可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch dev
+</span></span></code></pre></div><p><div class="not-prose">
+<figure>
+    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-1.png"
+      alt="image-20250502172256477" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h3 id="切换">切换</h3>
+<p>如果你想切换主分支为dev，则可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout dev
+</span></span></code></pre></div><p><div class="not-prose">
+<figure>
+    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-2.png"
+      alt="image-20250502172307958" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>也许你会不理解，主分支怎么可以切换呢？就像是本体和分身的身份怎么能切换？然而，git对于主分支的概念并不一样，主分支<strong>并不是独一无二的</strong>，它是由<strong>HEAD指针</strong>来指向的，HEAD指向谁，谁就是git概念上的主分支。</p>
+<p>而我们在实际开发和使用过程中，通常会固定使用<strong>main</strong>或者<strong>master</strong>来充当<strong>本体</strong>，分支对应的功能开发和测试完毕再合并到<strong>主分支</strong>中，就像是分身把它写完的作业给你一样。</p>
+<h3 id="创建并切换">创建并切换</h3>
+<p>如果你想创建一个dev分支并切换到dev分支上，你可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git chechout -b dev
+</span></span></code></pre></div><p>唯一的优点是简洁，毕竟一行命令就解决了。</p>
+<h3 id="合并">合并</h3>
+<p>如果你想把dev分支合并到master分支上，你可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout master
+</span></span><span class="line"><span class="cl">git merge dev
+</span></span></code></pre></div><p>第一行表示切换master为<strong>主分支</strong>(本体)</p>
+<p>第二行表示把分支dev(<strong>分身</strong>)合并到master上。</p>
+<h4 id="情况一只有dev分支更新了">情况一：只有dev分支更新了</h4>
+<p>如图：</p>
+<p><div class="not-prose">
+<figure>
+    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-3.png"
+      alt="image-20250502172333392" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>也许你会有疑问，那如果dev进行了多次版本提交，你不炸了吗？</p>
+<p>所以上图表示的是一种合并模式——<strong>Fast-forword</strong>，它是直接把master指向了dev所指向的版本，以此来快速合并。</p>
+<h4 id="情况二dev和master分支都更新了">情况二：dev和master分支都更新了</h4>
+<p>如图：</p>
+<p><div class="not-prose">
+<figure>
+    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-4.png"
+      alt="image-20250502175124865" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>如果dev和master对相同的地方做了不同的修改，那么此时就会发生合并冲突。</p>
+<p>假如原本有关readme文件，dev分支中它被添加了abc，master分支中它被添加了123。那么，此时git不知道也不能决定该保留水，那么此时就会发生合并冲突，并输出出来冲突的地方在readme文件。</p>
+<p>而readme文件早已不是原本的模样了，原本abc或者123所在的地方已经变成了：</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+123
+=======
+abc
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev
+</code></pre><p>&laquo;&lt;和===之间的内容是<strong>master分支</strong>所修改的内容，而===和&raquo;&gt;之间的内容是<strong>dev分支</strong>所修改的内容。</p>
+<p>只需要保留目标内容其他的都<strong>删掉</strong>即可，比如我们要保留dev分支所修改的内容，那么readme里的内容应该是：</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">abc
+</code></pre><p>然后再使用add和commit命令重新提交冲突的地方即可。</p>
+<h4 id="合并总结">合并总结：</h4>
+<p>情况一可以快速合并，也就是git自动帮我们合并了，而情况二就需要我们手动合并了，手动合并不要忘了再提交一次！！！</p>
+<p>想更直观地了解情况二的合并流程可以使用</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log --graph --abbrev-commit --pretty<span class="o">=</span>one
+</span></span></code></pre></div><p>第三个参数(&ndash;pretty=one)只会显示版本ID、分支名(如果是主分支则不显示)和commit内容。</p>
+<p>不带则会显示作者名、邮箱和时间等内容。</p>
+<p><strong>！！！时间线是从下往上的！！！</strong></p>
+<p>需注意，对于情况一，该命令是无法区分是合并操作还是直接提交操作的，如果以后出现了问题，想要查看日志追责时就可能查不到，万一你在那个时间也merge了，你就可能背一部分锅了。所以，我们对于情况一需要换一种命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git merge --no-ff -m <span class="s2">&#34;&#34;</span> dev
+</span></span></code></pre></div><p>双引号里添加的你提交的信息，&ndash;no-ff表示不要fast-forword模式合并。</p>
+<h3 id="删除">删除</h3>
+<p>删除分为两种，一种是分支已经被其他分支合并(merge)了，所以用普通删除，另一种是分支还在使用中，没有被完全合并(merge)，所以我们用强制删除。</p>
+<p>如果你想删除dev分支，则可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout master
+</span></span><span class="line"><span class="cl">git branch -d dev
+</span></span><span class="line"><span class="cl">git branch
+</span></span></code></pre></div><p>第一行表示切换到master分支。</p>
+<p>第二行表示删除dev分支。</p>
+<p>第三行表示<del>验尸</del>查看所有的分支名和主分支。</p>
+<p>为什么要切换到master分支再删除呢？——因为不能在dev分支里删除dev分支。就像你不能双手把自己举起来一样。</p>
+<p>强制删除只是把<code>-d</code>改成<code>-D</code>就好，命令如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout master
+</span></span><span class="line"><span class="cl">git branch -d dev
+</span></span><span class="line"><span class="cl">git branch
+</span></span></code></pre></div><p>由于创建、合并和删除分支很快，所以我们可以先创建分支，在分支上完成某项功能，实现成功之后再合并该分支，然后再删除分支。也许你可以说这是多此一举，毕竟这和在main分支直接操作的效果是一样的。而这种操作实际上就只是比直接在master分支上直接操作更安全罢了。<del>但是我喜欢卸磨杀驴</del></p>
+<h2 id="建议">建议</h2>
+<p>在实际开发中，每个人都负责自己分支，实现多人共同协作，但是，如果说<strong>今天</strong>master出bug了，其他协作人员快速修好上线，但是，你的分支是<strong>昨天</strong>创建的，<strong>明天</strong>才能开发完，那么，你能直接在master分支合并你的分支吗？</p>
+<p>**不行！**因为master的代码都是改过的！你不知道是否会有修改冲突的地方，也许你会说，那我再按照<a href="#%e6%83%85%e5%86%b5%e4%ba%8cdev%e5%92%8cmaster%e5%88%86%e6%94%af%e9%83%bd%e6%9b%b4%e6%96%b0%e4%ba%86">合并情况二</a>
+来修改不就好了？那我问你，你敢保证你改过之后不会出现新的bug吗？</p>
+<p>所以，最好先合并master到你的分支中，在你的分支上修修改改，这样即不会影响master又可以随心所欲地改代码。</p>
+<p>最后再合并到master上。</p>
+      </article>
+
+      
+
+
+
+
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="flex flex-none justify-center">
+    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row">
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+  <div class="grow"></div>
+  <div class="flex flex-row">
+    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
+</svg>
+</i> 2023 - 2025 XuMiao
+    
+  </div>
+  
+  <div class="flex flex-row">
+    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
+      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
+    </span>
+  </div>
+  
+</section>
+
+  </footer>
+  <script src="/main.js"></script>
+
+<div class="hidden top-1 right-1" id="code-copy">
+  <i class="h-6 w-6 block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+</svg>
+
+  </i>
+</div>
+<div class="hidden top-1 right-1" id="code-copy-done">
+  <i class="h-6 w-6 block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l5 5l10 -10" />
+</svg>
+
+  </i>
+</div><script src="/code-copy.js"></script>
+
+
+
+
+
+</body>
+</html>
