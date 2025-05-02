@@ -83,10 +83,6 @@ git stash list
 git branch dev
 ```
 
-
-![image-20250502172256477](Git篇(3)之分支管理.assert/image-1.png)
-
-
 ### 切换
 
 如果你想切换主分支为dev，则可以使用以下命令：
@@ -94,10 +90,6 @@ git branch dev
 ```bash
 git checkout dev
 ```
-
-
-![image-20250502172307958](Git篇(3)之分支管理.assert/image-2.png)
-
 
 也许你会不理解，主分支怎么可以切换呢？就像是本体和分身的身份怎么能切换？然而，git对于主分支的概念并不一样，主分支**并不是独一无二的**，它是由**HEAD指针**来指向的，HEAD指向谁，谁就是git概念上的主分支。
 
@@ -128,23 +120,9 @@ git merge dev
 
 #### 情况一：只有dev分支更新了
 
-如图：
-
-
-![image-20250502172333392](Git篇(3)之分支管理.assert/image-3.png)
-
-
-也许你会有疑问，那如果dev进行了多次版本提交，你不炸了吗？
-
-所以上图表示的是一种合并模式——**Fast-forword**，它是直接把master指向了dev所指向的版本，以此来快速合并。
+其合并模式为——**Fast-forword**，它是直接把master指向了dev所指向的版本，以此来快速合并。
 
 #### 情况二：dev和master分支都更新了
-
-如图：
-
-
-![image-20250502175124865](Git篇(3)之分支管理.assert/image-4.png)
-
 
 如果dev和master对相同的地方做了不同的修改，那么此时就会发生合并冲突。
 

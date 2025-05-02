@@ -271,26 +271,10 @@
 <h3 id="创建">创建</h3>
 <p>如果你想创建一个dev分支，则可以使用以下命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch dev
-</span></span></code></pre></div><p><div class="not-prose">
-<figure>
-    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-1.png"
-      alt="image-20250502172256477" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<h3 id="切换">切换</h3>
+</span></span></code></pre></div><h3 id="切换">切换</h3>
 <p>如果你想切换主分支为dev，则可以使用以下命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout dev
-</span></span></code></pre></div><p><div class="not-prose">
-<figure>
-    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-2.png"
-      alt="image-20250502172307958" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<p>也许你会不理解，主分支怎么可以切换呢？就像是本体和分身的身份怎么能切换？然而，git对于主分支的概念并不一样，主分支<strong>并不是独一无二的</strong>，它是由<strong>HEAD指针</strong>来指向的，HEAD指向谁，谁就是git概念上的主分支。</p>
+</span></span></code></pre></div><p>也许你会不理解，主分支怎么可以切换呢？就像是本体和分身的身份怎么能切换？然而，git对于主分支的概念并不一样，主分支<strong>并不是独一无二的</strong>，它是由<strong>HEAD指针</strong>来指向的，HEAD指向谁，谁就是git概念上的主分支。</p>
 <p>而我们在实际开发和使用过程中，通常会固定使用<strong>main</strong>或者<strong>master</strong>来充当<strong>本体</strong>，分支对应的功能开发和测试完毕再合并到<strong>主分支</strong>中，就像是分身把它写完的作业给你一样。</p>
 <h3 id="创建并切换">创建并切换</h3>
 <p>如果你想创建一个dev分支并切换到dev分支上，你可以使用以下命令：</p>
@@ -303,27 +287,8 @@
 </span></span></code></pre></div><p>第一行表示切换master为<strong>主分支</strong>(本体)</p>
 <p>第二行表示把分支dev(<strong>分身</strong>)合并到master上。</p>
 <h4 id="情况一只有dev分支更新了">情况一：只有dev分支更新了</h4>
-<p>如图：</p>
-<p><div class="not-prose">
-<figure>
-    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-3.png"
-      alt="image-20250502172333392" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<p>也许你会有疑问，那如果dev进行了多次版本提交，你不炸了吗？</p>
-<p>所以上图表示的是一种合并模式——<strong>Fast-forword</strong>，它是直接把master指向了dev所指向的版本，以此来快速合并。</p>
+<p>其合并模式为——<strong>Fast-forword</strong>，它是直接把master指向了dev所指向的版本，以此来快速合并。</p>
 <h4 id="情况二dev和master分支都更新了">情况二：dev和master分支都更新了</h4>
-<p>如图：</p>
-<p><div class="not-prose">
-<figure>
-    <img src="Git%e7%af%87%283%29%e4%b9%8b%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86.assert/image-4.png"
-      alt="image-20250502175124865" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
 <p>如果dev和master对相同的地方做了不同的修改，那么此时就会发生合并冲突。</p>
 <p>假如原本有关readme文件，dev分支中它被添加了abc，master分支中它被添加了123。那么，此时git不知道也不能决定该保留水，那么此时就会发生合并冲突，并输出出来冲突的地方在readme文件。</p>
 <p>而readme文件早已不是原本的模样了，原本abc或者123所在的地方已经变成了：</p>
