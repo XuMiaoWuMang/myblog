@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>Ubuntu美化 :: XuMiao&#39;s Blog - happy everday</title>
+  <title>Ubuntu美化 :: happy coding - Example site for hugo-theme-tailwind</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,8 +14,8 @@
   name="keywords"
   content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
 />
-<meta name="robots" content="noodp" /><meta property="og:url" content="http://localhost:1313/posts/ubuntu%E7%BE%8E%E5%8C%96/">
-  <meta property="og:site_name" content="XuMiao&#39;s Blog">
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/ubuntu%E7%BE%8E%E5%8C%96/">
+  <meta property="og:site_name" content="happy coding">
   <meta property="og:title" content="Ubuntu美化">
   <meta property="og:description" content="面对黑乎乎的命令行和靠左的菜单，是不是有点不适应呢？这里介绍一些美化的软件让你的Ubuntu更加美观，使用更加顺畅。">
   <meta property="og:locale" content="en">
@@ -206,26 +206,12 @@
 
     </i>
     <span>
-      5 minutes to read
+      One minute to read
     </span>
   </div>
 </div>
 
-      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-    class="icon icon-tabler icons-tabler-outline icon-tabler-user">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg>
-
-    </i>
-    <span>xumiao</span>
-  </div>
-</div>
+      
 
       
         
@@ -261,9 +247,9 @@
 <h2 id="窗口">窗口</h2>
 <p>主要是实现窗口的亚克力效果，俗称半透明磨砂、毛玻璃</p>
 <p>执行：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install chrome-gnome-shell -y
-</span></span><span style="display:flex;"><span>sudo apt install gnome-shell-extensions -y
-</span></span><span style="display:flex;"><span>sudo apt install gnome-tweaks -y
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install chrome-gnome-shell -y
+</span></span><span class="line"><span class="cl">sudo apt install gnome-shell-extensions -y
+</span></span><span class="line"><span class="cl">sudo apt install gnome-tweaks -y
 </span></span></code></pre></div><p>火狐浏览器搜<strong><a href="https://extensions.gnome.org" target="_blank" rel="noopener">https://extensions.gnome.org</a>
 </strong>。先点击蓝色(蓝粉色？)的窗口里的<code>Click here to install browser extension</code>，然后点击右上角的弹窗里的<code>Continue to Insatllation</code>，之后依旧是右上角点击<code>Add</code>，最后系统弹窗选<code>Allow</code>。</p>
 <h3 id="blur-my-shell">Blur My Shell</h3>
@@ -285,47 +271,47 @@
 <h3 id="壁纸">壁纸</h3>
 <p>如果你要静态壁纸的话，不如直接在Ubuntu的设置里设置。但是如果你要设置动态的壁纸的话，就安装<a href="https://github.com/dependon/fantascene-dynamic-wallpaper" target="_blank" rel="noopener">fantascene-dynamic-wallpaper</a>
 吧！</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~
-</span></span><span style="display:flex;"><span>git clone https://gitee.com/liuminghang/fantascene-dynamic-wallpaper
-</span></span><span style="display:flex;"><span>cd fantascene-dynamic-wallpaper
-</span></span><span style="display:flex;"><span>sh start_deb.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~
+</span></span><span class="line"><span class="cl">git clone https://gitee.com/liuminghang/fantascene-dynamic-wallpaper
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> fantascene-dynamic-wallpaper
+</span></span><span class="line"><span class="cl">sh start_deb.sh
 </span></span></code></pre></div><p>安装完成之后，可以点击左下角的9个·，点击最右边的箭头来到右边，然后找到fantascene-dynamic-wallpaper，双击启动。</p>
 <p>事先准备好动态壁纸的mp4文件，然后在右上角有个fantascene-dynamic-wallpaper的小图标。双击即可打开，弹出的窗口中，点击File选择你的MP4文件或者直接粘贴路径，找到model，点击<code>Add to startup Video aspect ratio</code>左边的小方块，重启试试效果即可。</p>
 <h3 id="终端">终端</h3>
 <p>下载<a href="https://github.com/fontmgr/MesloLGSNF/tree/main/fonts" target="_blank" rel="noopener">MesloLGSNF</a>
 里的<code>MesloLGS NF Bold Italic.ttf</code>、<code>MesloLGS NF Bold.ttf</code>和<code>MesloLGS NF Regular.ttf</code>并安装。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~
-</span></span><span style="display:flex;"><span>git clone https://github.com/fontmgr/MesloLGSNF.git
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~
+</span></span><span class="line"><span class="cl">git clone https://github.com/fontmgr/MesloLGSNF.git
 </span></span></code></pre></div><p>打开MesloLGSNF文件夹，进入fonts文件夹，分别双击<code>MesloLGS NF Bold Italic.ttf</code>、<code>MesloLGS NF Bold.ttf</code>和<code>MesloLGS NF Regular.ttf</code>，然后点击窗口右上角的<code>Install</code>，安装完成之后重启终端即可。</p>
 <p>打开一个新的终端，点击右上角三条杠，点击<code>Preferences</code>，弹出的窗口中点击最左边的<code>Unnamed</code>，然后点击Custom font的左边的小方块启用，然后点击右边的大方块更改字体。在弹出的窗口中搜索<strong>MesloLGS</strong>，点击出来的MesloLGS NF，然后点击右上角的select。字体就完成了！</p>
 <p>请保存快照，因为以下步骤极其容易出错！</p>
 <p>安装zsh：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install zsh -y
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install zsh -y
 </span></span></code></pre></div><p>oh-my-zsh：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/
-</span></span><span style="display:flex;"><span>sudo git clone https://github.com/robbyrussell/oh-my-zsh
-</span></span><span style="display:flex;"><span>cd ~/oh-my-zsh/tools
-</span></span><span style="display:flex;"><span>sudo sh install.sh
-</span></span><span style="display:flex;"><span>exit
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/
+</span></span><span class="line"><span class="cl">sudo git clone https://github.com/robbyrussell/oh-my-zsh
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/oh-my-zsh/tools
+</span></span><span class="line"><span class="cl">sudo sh install.sh
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
 </span></span></code></pre></div><p>其他插件：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install zsh-autosuggestions
-</span></span><span style="display:flex;"><span>sudo apt install zsh-syntax-highlighting
-</span></span><span style="display:flex;"><span>sudo mv /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-</span></span><span style="display:flex;"><span>sudo mv /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-</span></span><span style="display:flex;"><span>sudo cp -r /usr/share/zsh-autosuggestions ~/oh-my-zsh/custom/plugins
-</span></span><span style="display:flex;"><span>sudo cp -r /usr/share/zsh-syntax-highlighting ~/oh-my-zsh/custom/plugins
-</span></span><span style="display:flex;"><span>sudo git clone https://github.com/romkatv/powerlevel10k ~/oh-my-zsh/themes/powerlevel10k
-</span></span><span style="display:flex;"><span>sudo vim ~/.zshrc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install zsh-autosuggestions
+</span></span><span class="line"><span class="cl">sudo apt install zsh-syntax-highlighting
+</span></span><span class="line"><span class="cl">sudo mv /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">sudo mv /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl">sudo cp -r /usr/share/zsh-autosuggestions ~/oh-my-zsh/custom/plugins
+</span></span><span class="line"><span class="cl">sudo cp -r /usr/share/zsh-syntax-highlighting ~/oh-my-zsh/custom/plugins
+</span></span><span class="line"><span class="cl">sudo git clone https://github.com/romkatv/powerlevel10k ~/oh-my-zsh/themes/powerlevel10k
+</span></span><span class="line"><span class="cl">sudo vim ~/.zshrc
 </span></span></code></pre></div><p>然后会弹出vim窗口编辑文件，按i进入编辑模式，复制粘贴以下内容：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export ZSH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/oh-my-zsh&#34;</span>
-</span></span><span style="display:flex;"><span>ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;powerlevel10k/powerlevel10k&#34;</span>
-</span></span><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>git zsh-autosuggestions zsh-syntax-highlighting<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>source /usr/share/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-</span></span><span style="display:flex;"><span>source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-</span></span><span style="display:flex;"><span>source $ZSH/oh-my-zsh.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/oh-my-zsh&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;powerlevel10k/powerlevel10k&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">plugins</span><span class="o">=(</span>git zsh-autosuggestions zsh-syntax-highlighting<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /usr/share/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/oh-my-zsh.sh
 </span></span></code></pre></div><p>然后esc退出编辑模式，输入<code>:wq</code>保存并退出vim。输入以下命令：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chmod <span style="color:#ae81ff">777</span> ~/.zshrc
-</span></span><span style="display:flex;"><span>chsh -s /bin/zsh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod <span class="m">777</span> ~/.zshrc
+</span></span><span class="line"><span class="cl">chsh -s /bin/zsh
 </span></span></code></pre></div><p>输入完后重启。重启之后打开终端，会显示一堆英文，这说明以上步骤你都成功了。</p>
 <p>其实之后的步骤就全看个人喜好了，英语好的可以直接自立根生了，后面都是配置终端窗口的美化效果，比如测试终端能否正常显示字符，修改颜色，修改背景等等。</p>
 <hr>
@@ -334,27 +320,6 @@
 
       
 
-
-  <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "XuMiao" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 
@@ -377,15 +342,6 @@
   
   
   
-    <a href="https://github.com/XuMiaoWuMang" target="_blank" title="Github" class="flex flex-row mr-2">
-      <span class="hidden">Github</span>
-      <i class="h-6 w-6 flex-none"> <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
-</svg>
- </i>
-    </a>
-  
   
 
 
@@ -397,8 +353,14 @@
    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
    <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
 </svg>
-</i> 2025 Finish
+</i> 2025 blog
     
+  </div>
+  
+  <div class="flex flex-row">
+    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
+      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
+    </span>
   </div>
   
 </section>

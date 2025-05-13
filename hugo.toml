@@ -1,7 +1,7 @@
 baseURL = "https://blog.xumiao.link/"
-title = "XuMiao's Blog"
+title = "happy coding"
 author = "xumiao"
-copyright = "xumiao's copyright"
+copyright = "blog"
 pagination.pagerSize = 10
 languageCode = "en"
 theme = "tailwind"
@@ -19,7 +19,7 @@ theme = "tailwind"
     title = ""
 
   [params.footer]
-    since = 2021
+    since = 2025
     poweredby = true
 
 [menu]

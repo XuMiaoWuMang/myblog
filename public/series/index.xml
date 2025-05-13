@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on XuMiao&#39;s Blog</title>
+    <title>Series on happy coding</title>
     <link>https://blog.xumiao.link/series/</link>
-    <description>Recent content in Series on XuMiao&#39;s Blog</description>
+    <description>Recent content in Series on happy coding</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>1465498242@qq.com (xumiao)</managingEditor>
-    <webMaster>1465498242@qq.com (xumiao)</webMaster>
-    <copyright>Finish</copyright>
+    <managingEditor>user@example.com (Hugo Author)</managingEditor>
+    <webMaster>user@example.com (Hugo Author)</webMaster>
+    <copyright>blog</copyright>
     <atom:link href="https://blog.xumiao.link/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
