@@ -8,15 +8,16 @@ title = 'Ubuntu美化'
 
 > 如果修改过后发现用起来更卡了，建议卸载，毕竟用的流畅才能给人更好的体验！
 > 在进行以下操作之前，请给你的虚拟机做好快照，避免出现其他问题导致虚拟机损坏还无法复原。
+# 步骤
 
-# vim
+## vim
 https://gitee.com/HGtz2222/VimForCpp
 
 如果你是Centos系统，试试这个吧！个人评价：最佳。但很可惜，只支持Centos。
 
 至于ubuntu的vim个性化设置，我了解的不多，如果你有好的推荐，欢迎留言！
 
-# 窗口
+## 窗口
 
 主要是实现窗口的亚克力效果，俗称半透明磨砂、毛玻璃
 
@@ -29,8 +30,8 @@ sudo apt install gnome-tweaks -y
 
 火狐浏览器搜**https://extensions.gnome.org**。先点击蓝色(蓝粉色？)的窗口里的`Click here to install browser extension`，然后点击右上角的弹窗里的`Continue to Insatllation`，之后依旧是右上角点击`Add`，最后系统弹窗选`Allow`。
 
-## Blur My Shell
-### 安装
+### Blur My Shell
+#### 安装
 
 > 笔者写这篇文章时，该插件刚好更新，更新之后的插件好多功能修改了，甚至删除，其中就包括笔者最喜欢的一个，笔者的插件是2025年之前的版本。
 
@@ -52,12 +53,12 @@ sudo apt install gnome-tweaks -y
 
 ---
 
-### 卸载
+#### 卸载
 回到`https://extensions.gnome.org`页面，点击锥子和扳手交叉的图片的右边的红叉叉就可以直接卸载。
 
 ---
 
-## 壁纸
+### 壁纸
 如果你要静态壁纸的话，不如直接在Ubuntu的设置里设置。但是如果你要设置动态的壁纸的话，就安装[fantascene-dynamic-wallpaper](https://github.com/dependon/fantascene-dynamic-wallpaper)吧！
 
 ```bash
@@ -71,7 +72,7 @@ sh start_deb.sh
 
 事先准备好动态壁纸的mp4文件，然后在右上角有个fantascene-dynamic-wallpaper的小图标。双击即可打开，弹出的窗口中，点击File选择你的MP4文件或者直接粘贴路径，找到model，点击`Add to startup Video aspect ratio`左边的小方块，重启试试效果即可。
 
-## 终端
+### 终端
 下载[MesloLGSNF](https://github.com/fontmgr/MesloLGSNF/tree/main/fonts)里的`MesloLGS NF Bold Italic.ttf`、`MesloLGS NF Bold.ttf`和`MesloLGS NF Regular.ttf`并安装。
 
 ```bash
