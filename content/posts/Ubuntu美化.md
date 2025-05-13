@@ -52,12 +52,10 @@ sudo apt install gnome-tweaks -y
 点击左边的Ubuntu Desktop，来到Dock的Position on Screen，选择Bottom，这样你的Dock就会在屏幕底部，size调成你觉得合适的大小就行。
 
 ---
-
 #### 卸载
 回到`https://extensions.gnome.org`页面，点击锥子和扳手交叉的图片的右边的红叉叉就可以直接卸载。
 
 ---
-
 ### 壁纸
 如果你要静态壁纸的话，不如直接在Ubuntu的设置里设置。但是如果你要设置动态的壁纸的话，就安装[fantascene-dynamic-wallpaper](https://github.com/dependon/fantascene-dynamic-wallpaper)吧！
 
