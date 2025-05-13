@@ -1,6 +1,6 @@
 # SEO keywords and description for your site.
 keywords = "hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
-subtitle = "Example site for hugo-theme-tailwind"
+subtitle = "happy everday"
 
 # dir name of your blog content (default is `content/posts`).
 # the list of set content will show up on your index page (baseurl).
@@ -85,7 +85,7 @@ showAuthor = true
     link = 'https://github.com/XuMiaoWuMang'
 
 [pwa]
-  enabled = true
+  enabled = false
   icon = "logo.jpg" # should be in assets
   icon_sizes = [192, 512]
 
