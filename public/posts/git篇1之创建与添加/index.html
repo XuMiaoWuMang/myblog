@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>Git篇(1): 创建与添加 :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
+  <title>Git篇(1): 创建与添加 :: XuMiao&#39;s Blog - Example site for hugo-theme-tailwind</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content=""
+  content="创建并简单管理本地仓库的方法。
+"
 />
 <meta
   name="keywords"
   content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
 />
 <meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/">
-  <meta property="og:site_name" content="Hugo Theme Tailwind Example Site">
+  <meta property="og:site_name" content="XuMiao&#39;s Blog">
   <meta property="og:title" content="Git篇(1): 创建与添加">
+  <meta property="og:description" content="创建并简单管理本地仓库的方法。">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -25,6 +27,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git篇(1): 创建与添加">
+  <meta name="twitter:description" content="创建并简单管理本地仓库的方法。">
 
 
 <link rel="canonical" href="http://localhost:1313/posts/git%E7%AF%871%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%B7%BB%E5%8A%A0/" />
@@ -59,7 +62,7 @@
     <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
   <div class="flex-none ml-2 md:ml-0">
     <a href="/" class="">
-      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.webp" alt="logo">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.jpg" alt="logo">
     </a>
   </div>
   
@@ -203,12 +206,26 @@
 
     </i>
     <span>
-      One minute to read
+      4 minutes to read
     </span>
   </div>
 </div>
 
-      
+      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+    </i>
+    <span>xumiao</span>
+  </div>
+</div>
 
       
         
@@ -238,7 +255,8 @@
       
 
       <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
-        <h1 id="git篇-创建与添加">Git篇: 创建与添加</h1>
+        <p>创建并简单管理本地仓库的方法。</p>
+<h1 id="git篇-创建与添加">Git篇: 创建与添加</h1>
 <blockquote>
 <p>此文章编写于笔者刚开始学习git之时，所以不会有很多深奥的知识与历史，如有疏漏与错误，尽管联系笔者，我会及时修改，避免影响读者观感与知识理解。本系列文章不会太过深究git如何运作，各个操作的隐性机制，主打一个能用就行。</p></blockquote>
 <p>一言以蔽之：git是一种版本管理器。</p>
@@ -249,35 +267,38 @@
 <p>只需复制这行代码到linux中然后一路敲回车键即可获得git。</p>
 <blockquote>
 <p>注意！apt是ubuntu的包管理器，类似于应用商店，但是linux的发行版不只有ubuntu，类似像CentOS的包管理器是yum等，所以，在复制代码时请一定先去看看自己是什么发行版，包管理器是什么。唯一需要变的就是代码里的apt，如果账户不是root用户则需要加上sudo，其他的大差不差。</p></blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install git
-</span></span></code></pre></div><h3 id="卸载">卸载</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install git
+</span></span></code></pre></div><hr>
+<h3 id="卸载">卸载</h3>
 <p>与使用差不多，唯一变了的就是install，变成了remove。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt remove git
-</span></span></code></pre></div><h3 id="初始化">初始化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt remove git
+</span></span></code></pre></div><hr>
+<h3 id="初始化">初始化</h3>
 <p>在初始化操作之前，请先决定好自己git下来的目录，新建一个目录用于保存git下来的各种文件和代码，这个目录又叫仓库。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir <span class="o">[</span>目录名<span class="o">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir <span style="color:#f92672">[</span>目录名<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>先对git初始化,git初始化会在当前目录下新建一个.git隐藏目录。</p>
 <blockquote>
 <p>如非必要，不要修改.git目录下的任何内容，除非你是git高手。</p></blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
 </span></span></code></pre></div><p>如果对这个隐藏目录好奇可以用<code>tree .git/</code>来直观地看。</p>
+<hr>
 <h3 id="配置用户名与邮箱">配置用户名与邮箱</h3>
 <p>用户名与邮箱一般是指github上的账号和邮箱，国内也有类似的，比如gitee或者gitcode，按需修改用户名和邮箱。以下两行代码可以让你指定__该仓库__的用户名和邮箱。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config user.name <span class="s2">&#34;xumiao&#34;</span>
-</span></span><span class="line"><span class="cl">git config user.email <span class="s2">&#34;xumiao@email.com&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config user.name <span style="color:#e6db74">&#34;xumiao&#34;</span>
+</span></span><span style="display:flex;"><span>git config user.email <span style="color:#e6db74">&#34;xumiao@email.com&#34;</span>
 </span></span></code></pre></div><p>我怎么知道我修改成功与否呢？用以下命令即可。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config -l
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config -l
 </span></span></code></pre></div><p>如果想要将其置空，则可以使用以下命令来置空。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --unset user.name 
-</span></span><span class="line"><span class="cl">git config --unset user.email
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --unset user.name 
+</span></span><span style="display:flex;"><span>git config --unset user.email
 </span></span></code></pre></div><p>还有一种办法可以快速的对所有仓库配置用户名与邮箱，那就是以下命令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;xumiao&#34;</span>
-</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;xumiao@email.com&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#34;xumiao&#34;</span>
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#34;xumiao@email.com&#34;</span>
 </span></span></code></pre></div><blockquote>
 <p>请注意，使用了<code>--global</code>命令配置的用户名是不会被上述命令置空和修改的。</p></blockquote>
 <p>对应的置空命令为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global --unset user.name 
-</span></span><span class="line"><span class="cl">git config --global --unset user.email
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global --unset user.name 
+</span></span><span style="display:flex;"><span>git config --global --unset user.email
 </span></span></code></pre></div><p>如果你够细心的话就会发现，没加<code>--global</code>的用户名在<code>git config -l</code>的最下面，加了<code>global</code>的用户名则在<code>git config -l</code>的最上面。</p>
 <blockquote>
 <p>走到这里，你已经完成了git仓库的初始化了，接下来就是用git简单地管理仓库内的各种文件了！</p></blockquote>
@@ -286,27 +307,50 @@
 <blockquote>
 <p>除非你是git高手，不然的话不要手动修改.git隐藏目录！包括之后你往这个仓库里添加的各种文件与代码都不要放到.git中！</p></blockquote>
 <p>我们将仓库目录下除.git文件外的所有空间称作工作区。</p>
+<hr>
 <h3 id="修改与保存">修改与保存</h3>
 <blockquote>
 <p>git的add功能只能让修改的文件与代码暂时存在暂存区，它并__不会__将修改的内容提交到__master分支__下。</p></blockquote>
 <p>你可以使用add命令，为了应对你后悔的情况，它只会将你修改完的东西放到.git文件的暂存区中。你可以add后面一次接多个文件名或者是多个文件夹，也可以加个<code>.</code>，它都会将对应的文件保存在暂存区中，区别在于一个是无脑将当前目录下的所有文件都放到暂存区中，一个是精细化地将对应的文件放入暂存区中。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add <span class="o">[</span>./file-name/...<span class="o">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add <span style="color:#f92672">[</span>./file-name/...<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>使用<code>commit</code>命令，将仓库真正修改！</p>
 <p><code>-m</code>是必须有的！后面接双引号，是表示这次你做了什么，但是，这个是你自己填写的，相当于注释，方便以后想要找到特定版本时能够快速定位。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;注释&#34;</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;注释&#34;</span> 
 </span></span></code></pre></div><p>使用<code>log</code>命令，打印日志，方便找到对应的版本及其ID。<code>--pretty=one</code>可以只打印ID和对应的注释，舍去修改者和时间，方便根据注释找特定版本。</p>
 <blockquote>
 <p>commit后面对应的就是版本的ID，是十六进制哈希值，HEAD指向最新版本</p></blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
-</span></span><span class="line"><span class="cl">git log --pretty<span class="o">=</span>one
-</span></span></code></pre></div><h3 id="查看仓库状态">查看仓库状态</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git status
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log
+</span></span><span style="display:flex;"><span>git log --pretty<span style="color:#f92672">=</span>one
+</span></span></code></pre></div><hr>
+<h3 id="查看仓库状态">查看仓库状态</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git status
 </span></span></code></pre></div><h2 id="结尾">结尾</h2>
 <p>好了，你已经会创建和添加git仓库的基本操作了，去创建属于你的本地仓库吧！</p>
       </article>
 
       
 
+
+  <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "XuMiao" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 
@@ -329,6 +373,15 @@
   
   
   
+    <a href="https://github.com/XuMiaoWuMang" target="_blank" title="Github" class="flex flex-row mr-2">
+      <span class="hidden">Github</span>
+      <i class="h-6 w-6 flex-none"> <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+</svg>
+ </i>
+    </a>
+  
   
 
 
@@ -340,14 +393,8 @@
    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
    <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
 </svg>
-</i> 2023 - 2025 XuMiao
+</i> 2025 Finish
     
-  </div>
-  
-  <div class="flex flex-row">
-    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
-      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
-    </span>
   </div>
   
 </section>

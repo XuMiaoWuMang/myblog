@@ -3,6 +3,7 @@ date = '2025-04-25T23:37:09+08:00'
 draft = true
 title = 'Git篇(2): 撤销和删除'
 +++
+撤销或回退版本，删除文件的方法。
 <!--more-->
 
 # Git篇: 撤销和删除
@@ -23,6 +24,7 @@ title = 'Git篇(2): 撤销和删除'
 
 首先，我们**先后**往工作区中添加了**git**和**code**文件，随后执行了add和commit命令，所以我们的工作区、暂存区和版本库都有了相同的文件，即git文件和code文件。
 
+---
 ### 各种方法撤回修改
 #### 对于reset方法：
 
@@ -49,20 +51,22 @@ git reset [--option] HEAD~n
 
 > 使用`git reflog`可以查看历史记录，包括各种回退记录都能看到。
 
+---
 #### 对于checkout --方法：
 
 `git checkout -- <file id>`可以撤销工作区中指定文件的修改，适合精细化操作，对单个文件撤销。
 
+---
 ### 对于各种情况的撤销修改
 
 如果说上个版本只有git代码，而code代码则是作为新增文件存在同时也是我们要撤回的代码，那么我们面对不同的情况，可以进行以下操作：
 
 |目的|工作区（git code）|暂存区（git code）|版本库（git code）|操作|
 |:---|:---:|:---:|:---:|:---:|
-|撤销工作区中的内容| git ~~code~~|git|git|checkout -- |
-|撤销工作区、暂存区中的内容|git ~~code~~|git ~~code~~ | git |(reset --mixed搭配checkout --) 或者reset --hard|
+|撤销工作区中的内容| git ~~code~~|||checkout -- |
+|撤销工作区、暂存区中的内容|git ~~code~~|git ~~code~~ |  |(reset --mixed搭配checkout --) 或者reset --hard|
 |撤销工作区、暂存区和版本库中的内容| git ~~code~~| git ~~code~~| git ~~code~~|reset --hard|
-|撤销暂存区、版本库中的内容|| git ~~code~~ | git ~~code~~|reset --mixed|
+|撤销暂存区、版本库中的内容|| git ~~code~~ | |reset --mixed|
 |撤销版本库中的内容||| git ~~code~~|reset --soft|
 
 ## 删除文件
@@ -73,6 +77,8 @@ git reset [--option] HEAD~n
 #### 方法一：
 
 使用`rm <file>`可以删除工作区中的文件，但是，此时版本库和暂存区中的文件并没有被删除，所以，我们需要使用`git add <file>`来将删除操作添加到暂存区，随后使用`git commit -m "删除文件"`来将删除操作提交到版本库。
+
+---
 #### 方法二：
 
 使用`git rm <file>`可以删除版本库中的文件，此时，工作区和暂存区中的文件也会被删除，所以，我们不需要再使用`git add <file>`来将删除操作添加到暂存区，随后使用`git commit -m "删除文件"`来将删除操作提交到版本库。
