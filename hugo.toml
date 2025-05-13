@@ -1,26 +1,27 @@
-baseURL = "https://blog.xumiao.link/"
-title = "happy coding"
-author = "xumiao"
-copyright = "blog"
+baseURL = 'https://blog.xumiao.link/'
+title = "Happy everyday"
+copyright = "begin"
 pagination.pagerSize = 10
 languageCode = "en"
 theme = "tailwind"
-
+buildDrafts = true
+showAuthor = true
 [markup]
   _merge = "deep"
+[author]
+  name = "xumiao"
+  email = "1465498242@qq.com"
 
 [params]
-  # dir name of your blog content (default is `content/posts`).
-  # the list of set content will show up on your index page (baseurl).
   contentTypeName = "posts"
 
   [params.header]
     logo = "logo.jpg"
-    title = ""
+    title = "xumiao"
 
   [params.footer]
     since = 2025
-    poweredby = true
+    poweredby = false
 
 [menu]
 
