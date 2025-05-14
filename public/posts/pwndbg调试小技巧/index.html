@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>Pwndbg调试小技巧 :: Happy everyday - Example site for hugo-theme-tailwind</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="做pwn题总是离不开pwndbg等调试工具，这里记录一下一些常用的调试技巧。
+"
+/>
+<meta
+  name="keywords"
+  content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
+/>
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="https://blog.xumiao.link/posts/pwndbg%E8%B0%83%E8%AF%95%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+  <meta property="og:site_name" content="Happy everyday">
+  <meta property="og:title" content="Pwndbg调试小技巧">
+  <meta property="og:description" content="做pwn题总是离不开pwndbg等调试工具，这里记录一下一些常用的调试技巧。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-15T00:22:07+08:00">
+    <meta property="article:modified_time" content="2025-05-15T00:22:07+08:00">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pwndbg调试小技巧">
+  <meta name="twitter:description" content="做pwn题总是离不开pwndbg等调试工具，这里记录一下一些常用的调试技巧。">
+
+
+<link rel="canonical" href="https://blog.xumiao.link/posts/pwndbg%E8%B0%83%E8%AF%95%E5%B0%8F%E6%8A%80%E5%B7%A7/" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/index.min.be14db9232647733b0febb286269b110d4ecc7f5583129508c666c15c7697656.css">
+
+
+
+
+
+
+
+
+
+  
+  
+
+</head>
+<body class="flex flex-col min-h-screen w-full bg-slate-50 dark:bg-gray-800"><header class="flex flex-none justify-center z-10">
+    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
+  <div class="flex-none ml-2 md:ml-0">
+    <a href="/" class="">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.jpg" alt="logo">
+    </a>
+  </div>
+  
+  <h1 class="hidden md:flex flex-col justify-center mx-2">
+    <a href="/" class="text-2xl font-semibold text-slate-800 dark:text-slate-200">
+      xumiao
+    </a>
+  </h1>
+  
+  <div class="flex-1"></div>
+  <div class="flex-none">
+    
+
+
+
+<nav class="h-full static">
+  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
+    <span class="sr-only">Open main menu</span>
+    <i class="w-8 h-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>
+
+    </i>
+  </button>
+  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
+    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-xs md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
+    
+        <li id="post" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600 text-emerald-600"
+            href="/posts/" title="Post">Post</a>
+        </li>
+      
+    
+        <li id="about" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="" title="About">About</a>
+        </li>
+      
+    
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+  
+  <div class="flex-none mx-1"></div>
+  
+  <div class="flex-none md:hidden">
+    <a href=/search/ class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg" aria-controls="navbar-menu" aria-expanded="false">
+      <span class="sr-only">Search</span>
+      <i class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+    <path d="M21 21l-6 -6" />
+</svg>
+
+      </i>
+    </a>
+  </div>
+  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
+    <label for="darkmode-toggle" class="relative flex items-center gap-1 px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
+      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
+      <div class="absolute z-10 w-15 h-8 rounded-full bg-white dark:bg-gray-700"></div>
+      <i class="h-6 w-6 z-20 ml-1 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:invisible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+   <path d="M12 5l0 .01"></path>
+   <path d="M17 7l0 .01"></path>
+   <path d="M19 12l0 .01"></path>
+   <path d="M17 17l0 .01"></path>
+   <path d="M12 19l0 .01"></path>
+   <path d="M7 17l0 .01"></path>
+   <path d="M5 12l0 .01"></path>
+   <path d="M7 7l0 .01"></path>
+</svg>
+
+      </i>
+      <i class="h-6 w-6 z-20 mr-1 flex-none rounded-full place-self-center invisible peer-checked:visible">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+   <path d="M19 11h2m-1 -1v2"></path>
+</svg>
+
+      </i>
+    </label>
+  </div>
+</div>
+
+  </header>
+  <main class="flex flex-auto justify-center">
+    
+<div id="progress" class="fixed top-0 left-0 w-full h-1 bg-blue-500"></div>
+<div class="w-full max-w-4xl lg:max-w-5xl">
+  <div class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
+    <div>
+      <a href="/posts/pwndbg%E8%B0%83%E8%AF%95%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+        
+      </a>
+    </div>
+    <div class="flex flex-col gap-y-3 p-6">
+      <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
+        <a href="/posts/pwndbg%E8%B0%83%E8%AF%95%E5%B0%8F%E6%8A%80%E5%B7%A7/">Pwndbg调试小技巧</a>
+      </h1>
+
+      
+      
+
+
+      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  
+  
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
+   <path d="M16 3v4"></path>
+   <path d="M8 3v4"></path>
+   <path d="M4 11h16"></path>
+   <path d="M11 15h1"></path>
+   <path d="M12 15v3"></path>
+</svg>
+
+    </i>
+    <time datetime="2025-05-15T00:22:07&#43;08:00">
+      2025-05-15
+    </time>
+  </div>
+
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6.5 7h11"></path>
+   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
+   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
+</svg>
+
+    </i>
+    <span>
+      2 minutes to read
+    </span>
+  </div>
+</div>
+
+      
+
+      
+        
+        <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
+          <h2>Table of Contents</h2>
+          <aside><nav id="TableOfContents">
+  <ul>
+    <li><a href="#help查看所有命令"><strong>help查看所有命令</strong></a></li>
+    <li><a href="#调试命令">调试命令</a>
+      <ul>
+        <li><a href="#调试前的准备指令">调试前的准备指令</a></li>
+        <li><a href="#控制程序的命令">控制程序的命令</a></li>
+        <li><a href="#查看数据内容和类型的命令">查看数据内容和类型的命令</a></li>
+        <li><a href="#堆相关命令">堆相关命令</a></li>
+        <li><a href="#格式化字符串漏洞相关命令">格式化字符串漏洞相关命令</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+        </section>
+        
+      
+
+      <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
+        <p>做pwn题总是离不开pwndbg等调试工具，这里记录一下一些常用的调试技巧。</p>
+<h1 id="常用命令">常用命令</h1>
+<h2 id="help查看所有命令"><strong>help查看所有命令</strong></h2>
+<h2 id="调试命令">调试命令</h2>
+<h3 id="调试前的准备指令">调试前的准备指令</h3>
+<ul>
+<li><code>checksec</code> 查看保护</li>
+<li><code>aslr &lt;on/off&gt;</code> 开启/关闭aslr</li>
+</ul>
+<h3 id="控制程序的命令">控制程序的命令</h3>
+<ul>
+<li><code>dbg &lt;filename&gt;</code> 直接启动</li>
+<li><code>r</code> 运行</li>
+<li><code>c</code> 继续运行</li>
+<li><code>n</code> 单步运行</li>
+<li><code>s</code> 单步运行，进入函数</li>
+<li><code>b</code> 设置断点
+<ul>
+<li><code>b *0x7ffff7a5c060</code> 设置断点在地址</li>
+<li><code>b main</code> 设置断点在函数</li>
+<li><code>b $rebase(0xdeadbeef)</code> 设置断点在相对地址（常用于题目开了pie无法获得准确地址时的选择，参数就是偏移量）</li>
+<li><code>info b</code> 查看所有断点信息</li>
+<li><code>delete 5</code> 删除第5个断点</li>
+<li><code>disable 5</code> 禁用第5个断点</li>
+<li><code>enable 5</code> 启用第5个断点</li>
+<li><code>clear</code> 清除所有断点</li>
+</ul>
+</li>
+</ul>
+<h3 id="查看数据内容和类型的命令">查看数据内容和类型的命令</h3>
+<ul>
+<li><code>p</code> 查看变量
+<ul>
+<li><code>p $esp</code> 查看esp寄存器</li>
+<li><code>p $ebp</code> 查看ebp寄存器</li>
+<li><code>p $eip</code> 查看eip寄存器</li>
+<li><code>p 10-4</code> 打印10-4的值</li>
+<li><code>p &amp;var</code> 打印变量地址</li>
+<li><code>p *0x7ffff7a5c060</code> 打印地址0x7ffff7a5c060的值</li>
+<li>……（反正就是接<code>$寄存器名</code>或者表达式）</li>
+</ul>
+</li>
+<li><code>x</code> 查看内存
+<ul>
+<li><code>x/10gx</code> 查看10个8字节内存</li>
+<li><code>x/10gx $esp</code> 查看esp寄存器指向的10个8字节内存</li>
+<li><code>x/10gx $rebase(0xdeadbeef)</code> 查看相对地址0xdeadbeef指向的10个8字节内存</li>
+<li>……（反正就是接<code>/个数 字节数 输出形式 内存地址</code>）
+<ul>
+<li><code>个数</code> 查看多少个</li>
+<li><code>字节数</code> 查看多少字节，可以是<code>b</code>（1字节）、<code>h</code>（2字节）、<code>w</code>（4字节）、<code>g</code>（8字节）</li>
+<li>输出形式可以是<code>x</code>（16进制）、<code>d</code>（10进制）、<code>c</code>（字符）、<code>f</code>（浮点数）、<code>s</code>（字符串）、<code>i</code>（指令）</li>
+<li>内存地址可以是<code>$寄存器名</code>、<code>$rebase(偏移量)</code>、<code>0x地址</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>type</code> 查看变量类型
+<ul>
+<li><code>type var</code> 查看变量类型</li>
+<li><code>type $rebase(0xdeadbeef)</code> 查看相对地址0xdeadbeef的类型</li>
+</ul>
+</li>
+<li><code>context</code> 查看上下文
+<ul>
+<li><code>context regs</code> 查看寄存器</li>
+<li><code>context stack</code> 查看寄存器、汇编、内存</li>
+</ul>
+</li>
+<li><code>hexdump</code>
+<ul>
+<li><code>hexdump $rebase(0xdeadbeef)</code> 查看相对地址0xdeadbeef的内存</li>
+<li><code>hexdump $rebase(0xdeadbeef) 10</code> 查看相对地址0xdeadbeef的10个字节内存</li>
+</ul>
+</li>
+<li><code>telescope</code>：是比hexdump更智能的选项
+<ul>
+<li><code>telescope $rebase(0xdeadbeef)</code> 查看相对地址0xdeadbeef的内存</li>
+</ul>
+</li>
+<li><code>vmmap</code> 查看内存映射</li>
+<li><code>disassemble</code> 查看汇编
+<ul>
+<li><code>disassemble main</code> 查看main函数的汇编</li>
+<li><code>disassemble $rebase(0xdeadbeef)</code> 查看相对地址0xdeadbeef的汇编</li>
+</ul>
+</li>
+<li><code>search</code> 查看内存中是否有某个值</li>
+<li><code>rop</code> 查看rop链</li>
+<li><code>plt</code> 查看plt表</li>
+<li><code>got</code> 查看got表</li>
+<li><code>symbols</code> 查看符号表</li>
+<li><code>info</code> 查看信息
+<ul>
+<li><code>info registers</code> 查看寄存器</li>
+<li><code>info args</code> 查看函数参数</li>
+<li><code>info locals</code> 查看局部变量</li>
+<li><code>info breakpoints</code> 查看断点</li>
+<li><code>info functions</code> 查看函数</li>
+<li><code>info variables</code> 查看变量</li>
+<li><code>info files</code> 查看文件</li>
+<li><code>info threads</code> 查看线程</li>
+</ul>
+</li>
+<li><code>dps</code> 优雅地输出内容
+<ul>
+<li><code>dps $esp</code> 优雅地输出esp寄存器指向的内存</li>
+<li><code>dps $rebase(0xdeadbeef)</code> 优雅的输出相对地址0xdeadbeef指向的内存</li>
+<li><code>dps addr</code> 优雅地输出地址指定地址的内存</li>
+</ul>
+</li>
+<li><code>procinfo</code> 查看进程信息</li>
+<li><code>canary</code> 查看canary</li>
+<li><code>stack</code> 查看栈
+<ul>
+<li><code>stack 10</code> 查看栈顶10个元素</li>
+<li><code>retaddr</code> 查看所有的返回地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="堆相关命令">堆相关命令</h3>
+<ul>
+<li><code>heap</code> 查看堆
+<ul>
+<li><code>heap -v</code> 查看堆详细信息</li>
+<li><code>heap -s</code> 查看堆简略信息</li>
+<li><code>heap addr</code> 查看指定地址的堆以及高地址堆</li>
+<li><code>heapbase</code> 查看堆基地址</li>
+<li><code>heapinfo</code> 查看堆信息</li>
+<li><code>heapinfoall</code> 查看所有堆信息(我的评价是不如bins)</li>
+<li><code>parseheap</code> 优雅地显示堆</li>
+</ul>
+</li>
+<li><code>arena</code> 显示arena的基本信息
+<ul>
+<li><code>arenas</code> 显示所有arena的基本信息</li>
+<li><code>arenainfo</code> 优雅地显示arena的基本信息</li>
+</ul>
+</li>
+<li><code>bins</code> 查看所有种类的堆块的链表信息
+<ul>
+<li><code>fastbins</code> 显示fastbins的链表信息</li>
+<li><code>largebins</code> 显示largebins的链表信息</li>
+<li><code>smallbins</code> 显示smallbins的链表信息</li>
+<li><code>unsortedbins</code> 显示unsortedbins的链表信息</li>
+<li><code>tcachebins</code> 显示tcachebins的链表信息
+<ul>
+<li><code>tcache</code> 显示tcache的详细信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>tracemalloc</code> 跟踪堆分配(没成功，不知道怎么用)</li>
+</ul>
+<h3 id="格式化字符串漏洞相关命令">格式化字符串漏洞相关命令</h3>
+<ul>
+<li><code>cyclc</code> 有规律地生成一串字符串
+<ul>
+<li><code>cycle 10</code> 生成10个字符的字符串</li>
+<li><code>cycle -l &quot;aaag&quot;</code> 由于cyclic是生成有规律的一串字符串，所以在应对格式化字符串的时候，如果不知道格式化字符串的长度，可以先使用<code>cyclic 100</code>生成一大串字符串，输入进去，然后直接c，程序就会报错，返回对应的地址被覆盖了，假如被覆盖成“aaag”，就可以使用<code>cycle -l “aaag”</code>来快速获取偏移，注：此时输出的偏移对应着ret对应的地方。</li>
+</ul>
+</li>
+</ul>
+      </article>
+
+      
+
+
+
+
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="flex flex-none justify-center">
+    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row">
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+  <div class="grow"></div>
+  <div class="flex flex-row">
+    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
+</svg>
+</i> 2025 begin
+    
+  </div>
+  
+</section>
+
+  </footer>
+  <script src="/main.min.65ca5b0808abf278fcec5d424701ebf0b4bc46a737129cd5e57fdb739f463e79.js"></script>
+
+
+
+
+</body>
+</html>
