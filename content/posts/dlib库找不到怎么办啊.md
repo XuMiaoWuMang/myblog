@@ -31,6 +31,7 @@ add_executable(face_detector face_detector.cpp)
 target_link_libraries(face_detector dlib::dlib)
 ```
 
+
 第三行的`/home/abc/code/dlib/dlib`替换成你dlib库的路径，第四行的`face_detector`替换成你的可执行文件名，第五行的`face_detector`替换成你的可执行文件需要链接的库。
 
 ## core.hpp找不到了
@@ -60,6 +61,7 @@ cv_image.h中包含的路径是/usr/include/opencv2，将其第6行和第7行修
 #include <opencv4/opencv2/core/types_c.h>
 ```
 ![alt text](../image-2.png)
+
 
 这样就可以编译成功了，快去试试吧！
 
