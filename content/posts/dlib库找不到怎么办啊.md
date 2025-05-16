@@ -10,7 +10,7 @@ title = 'Dlib库找不到怎么办啊'
 
 哇，cmake怎么这么坏啊，不能让他自己找吗？答案是当然可以
 
-以下CMakeLists.txt文件为例，我们想编译一个名为`face_detector`的可执行文件，但是在他的源文件`face_detector.cpp`中用到了dlib库，如果我们直接在build目录下`cmake ..`好无疑问，会出现以上报错信息。
+以下CMakeLists.txt文件为例，我们想编译一个名为`face_detector`的可执行文件，但是在他的源文件`face_detector.cpp`中用到了dlib库，如果我们直接在build目录下`cmake ..`毫无疑问，会出现以上报错信息。
 
 ```cmake
 cmake_minimum_required(VERSION 3.8.0)

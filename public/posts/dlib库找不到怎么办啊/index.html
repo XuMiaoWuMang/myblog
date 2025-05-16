@@ -228,7 +228,7 @@
   </figure></div>
 </p>
 <p>哇，cmake怎么这么坏啊，不能让他自己找吗？答案是当然可以</p>
-<p>以下CMakeLists.txt文件为例，我们想编译一个名为<code>face_detector</code>的可执行文件，但是在他的源文件<code>face_detector.cpp</code>中用到了dlib库，如果我们直接在build目录下<code>cmake ..</code>好无疑问，会出现以上报错信息。</p>
+<p>以下CMakeLists.txt文件为例，我们想编译一个名为<code>face_detector</code>的可执行文件，但是在他的源文件<code>face_detector.cpp</code>中用到了dlib库，如果我们直接在build目录下<code>cmake ..</code>毫无疑问，会出现以上报错信息。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.8.0</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">project</span><span class="p">(</span><span class="s">examples</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
