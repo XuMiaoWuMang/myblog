@@ -105,8 +105,8 @@ title = 'Pwndbg调试小技巧'
     - `unsortedbins` 显示unsortedbins的链表信息
     - `tcachebins` 显示tcachebins的链表信息
         - `tcache` 显示tcache的详细信息
-- `tracemalloc` 跟踪堆分配(没成功，不知道怎么用)
-
+- `tracemalloc` 跟踪堆分配
+- `vis` 给相邻的堆块上不同的颜色区分，并输出所有内容(按字节输出)
 ### 格式化字符串漏洞相关命令
 - `cyclc` 有规律地生成一串字符串
     - `cycle 10` 生成10个字符的字符串
