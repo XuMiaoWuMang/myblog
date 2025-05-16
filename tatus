@@ -1,0 +1,189 @@
+[33mcommit 93910fde674ab971de49bcf1a20a0e044462e935[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Thu May 15 01:35:55 2025 +0800
+
+    finish pwndbg.md
+
+[33mcommit bda344f0edb156ee5e8a6a6d24e42a328d4d6ffa[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 22:27:44 2025 +0800
+
+    remove git.md
+
+[33mcommit 0374318984c27b22738c4004d212e1910feb7ee9[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 22:25:27 2025 +0800
+
+    remove git.md
+
+[33mcommit 8597b6df74ce617f6f648c9c625c186a909eb332[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 22:16:19 2025 +0800
+
+    updata mayblog
+
+[33mcommit 339b1d7c02cee03ea1422a50a7248e372a61006e[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 22:15:36 2025 +0800
+
+    updata mayblog
+
+[33mcommit 6a05c2fda256f94b25757faf6eed787f0200c373[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 21:30:06 2025 +0800
+
+    hugo build
+
+[33mcommit 1cbfe6731571073d2f535e26b181dd361fd59d75[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 21:25:07 2025 +0800
+
+    updata myblog
+
+[33mcommit a4ac48a87da0b29c41dccba89cdfc0891f2b516d[m
+Merge: 4037076 04775b4
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 21:12:38 2025 +0800
+
+    Merge branch 'test'
+
+[33mcommit 04775b4887e2b79599232778e63f4f3cc2cc4e68[m[33m ([m[1;32mtest[m[33m)[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 21:11:26 2025 +0800
+
+    hugo build
+
+[33mcommit d2b8f2c495fcd01ad15f5871a00ab60268740c84[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 21:08:39 2025 +0800
+
+    hugo build
+
+[33mcommit 940d84ad7050af856a64a30c8fba413cdbfe90ba[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 21:07:22 2025 +0800
+
+    hugo build
+
+[33mcommit a28b2b5b33776a26738998bf2c2a774716a53626[m[33m ([m[1;31morigin/test[m[33m)[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:55:29 2025 +0800
+
+    hugo build
+
+[33mcommit 8b2aa83ba6ca6b2d673fc92f55b7aaa2ef64d2f6[m
+Merge: 5990341 4037076
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:51:59 2025 +0800
+
+    Merge branch 'main' into test
+
+[33mcommit 4037076d8b85dd41fb15d7499f6df3ca57a3bc16[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:46:39 2025 +0800
+
+    edit config
+
+[33mcommit af7e1cf9b072adcfd4594a3410a384ccc92463cd[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:37:39 2025 +0800
+
+    edit public
+
+[33mcommit 510a4e73f6ccdae25b5cca1086b7cb9cc90cd0e8[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:25:36 2025 +0800
+
+    edit public
+
+[33mcommit 8b4484c1b45b897731e140b87272696033c2cdf9[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:13:36 2025 +0800
+
+    finish VMware's problem and Ubuntu beautify
+
+[33mcommit 38b1038f58adeb87d3a36483d6c6e45753e778d1[m
+Merge: 9af1471 5990341
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:05:24 2025 +0800
+
+    merge test
+
+[33mcommit 5990341d542e44e752047ebf9a6e608c93f39080[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue May 13 20:03:45 2025 +0800
+
+    finish VMware and Ubuntu Beautification
+
+[33mcommit 9af14711195fc19409ef1b4e598771e6ffce1dd9[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri May 2 22:07:39 2025 +0800
+
+    edit git3
+
+[33mcommit a9aff1df167e98ab2f6ea5152d3c9923ee04e3c6[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri May 2 21:46:02 2025 +0800
+
+    edit myblog
+
+[33mcommit 87f47ed85da31f9bf8521fd864c2640b9b5bd973[m
+Merge: c739092 3c635eb
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri May 2 21:40:46 2025 +0800
+
+    edit Git篇(3): 分支管理
+
+[33mcommit c7390924ae587837fcc6e2561142e8883b38d107[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri May 2 21:33:15 2025 +0800
+
+    edit Git篇(3): 分支管理
+
+[33mcommit 3c635eba438faf6b806575daa7a6d569afa2edd4[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri May 2 20:52:03 2025 +0800
+
+    edit Git篇(3): 分支管理
+
+[33mcommit 619c7caff55d17f57a3f459df0b5280bb6590a79[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri May 2 20:48:01 2025 +0800
+
+    finish Git篇(3): 分支管理
+
+[33mcommit 4b9be178cca13fc18362cdfa7272d4a4ce5b7d2c[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Sat Apr 26 01:02:23 2025 +0800
+
+    push my blog article
+
+[33mcommit 33553f658a699abc1517562021dbd3cea714073c[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Fri Apr 25 23:44:23 2025 +0800
+
+    finish git(2) and edit git(1)
+
+[33mcommit dc2a67b4afb2b2b07cd80b9bd0cb5e236dc206f9[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue Apr 22 23:09:07 2025 +0800
+
+    add Git(1).md
+
+[33mcommit a3557ba1b49621130b55df721e0b2c1077b8e90c[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue Apr 22 23:06:50 2025 +0800
+
+    finishi md file
+
+[33mcommit 4de87bdb2e1cd687a214ef92d9e5237bb04c71b5[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue Apr 22 21:27:35 2025 +0800
+
+    edit url
+
+[33mcommit c42109c6a081cacd846b0092245cb2ed6ac69a71[m
+Author: XuMiaoWuMang <2596585833@qq.com>
+Date:   Tue Apr 22 21:23:00 2025 +0800
+
+    finish blog and git.md
