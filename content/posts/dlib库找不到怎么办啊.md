@@ -9,7 +9,7 @@ title = 'GUI code和core.hpp找不到怎么办啊?'
 
 ## 无法使用GUI code
 
-![GUI code](../GUIcode.png)
+![GUI code](../../GUIcode.png)
 
 其实是因为没找到链接完全导致的，我们需要将可执行文件与dlib链接起来。
 
@@ -36,7 +36,7 @@ target_link_libraries(face_detector dlib::dlib)
 
 ## core.hpp找不到了
 
-![core.hpp找不到了.png](../core.hpp找不到了.png)
+![core.hpp找不到了.png](../../core.hpp找不到了.png)
 
 怎么回事，怎么include不了opencv2/core/core.hpp？明明有的啊？！！
 
@@ -48,11 +48,11 @@ target_link_libraries(face_detector dlib::dlib)
 find / -name opencv2 2>>/tmp/null
 ```
 
-![alt text](../image-1.png)
+![alt text](../../image-1.png)
 
 确认/usr/include中存在opencv2，打开我们的cv_inmage.h。（因为报错的是cv_image.h!）
 
-![alt text](../image.png)
+![alt text](../../image.png)
 
 cv_image.h中包含的路径是/usr/include/opencv2，将其第6行和第7行修改成以下内容
 
@@ -60,7 +60,7 @@ cv_image.h中包含的路径是/usr/include/opencv2，将其第6行和第7行修
 #include <opencv4/opencv2/core/core.hpp>
 #include <opencv4/opencv2/core/types_c.h>
 ```
-![alt text](../image-2.png)
+![alt text](../../image-2.png)
 
 
 这样就可以编译成功了，快去试试吧！
